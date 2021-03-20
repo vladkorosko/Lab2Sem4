@@ -13,6 +13,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    graph_algorithm/graph.h \
     mainwindow.h
 
 FORMS += \
