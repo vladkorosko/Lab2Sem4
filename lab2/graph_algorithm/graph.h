@@ -13,6 +13,7 @@ public :
     Graph_Node_Iterator(U matrix){
         this->matrix=matrix;
         First_absolute();
+        index=0;
     }
 
     void First_absolute(){
@@ -29,6 +30,8 @@ public :
         node={matrix.get_length(0,node.second.second),{0,node.second.second}};
     };
 
+
+
     void Next_absolute(){
         if(matrix.get_lenght()-1==node.second.first && matrix.get_lenght()-1 >node.second.second ){
             node.first=matrix.get_length(0,++node.second.second);
@@ -41,10 +44,6 @@ public :
     };
 
     void Next_horizontal(){
-        if( matrix.get_lenght()-1 ==node.second.second ){
-            node.first=matrix.get_length(0,++node.second.second);
-            node.second.first=0;
-        }
          if( matrix.get_lenght()-1 >node.second.second ){
          node.first=matrix.get_length(node.second.first,++node.second.second);
          }
@@ -52,12 +51,14 @@ public :
     };
 
     void Next_verticall(){
-
-
          if( matrix.get_lenght()-1 >node.second.first ){
          node.first=matrix.get_length(++node.second.first,node.second.second);
          }
          else return;
+    };
+
+    void Next_ficticall(){
+        ++index;
     };
 
     bool isDone_absolute(){
@@ -67,16 +68,23 @@ public :
     bool isDone_horizontal(){
         return  node.second.second==matrix.size_of_graph()-1;
     };
+
     bool isDone_verticall(){
         return  node.second.first==matrix.size_of_graph()-1;
     };
 
+    bool isDone_ficticall(){
+        if(index<matrix.size_of_graph())
+            return true;
+        else{ index=0;return false;}
+    }
 
     T Current(){
         return node.first;
     };
 
 private:
+    int index;
     Node node;
     U matrix;
 };
