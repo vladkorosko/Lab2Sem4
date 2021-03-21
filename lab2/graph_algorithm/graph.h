@@ -2,119 +2,158 @@
 #define GRAPH_H
 
 #include <vector>
+#include <string>
+#include "template_data/t_data.h"
 
+#include <iostream>
 using namespace std;
 
-template <typename T,typename U>
-class Graph_Node_Iterator{
-    typedef typename  pair<T,pair<int,int>>:: graph_node_iterator  Node ;
-public :
+template <typename T, typename U>
+class Graph_Node_Iterator {
+private:
+    int index;
+   pair<T, pair<int, int>> node;
+    int i;
+    int j;
+    U matrix;
+    bool end_h;
+    bool end_v;
 
-    Graph_Node_Iterator(U matrix){
-        this->matrix=matrix;
+public:
+
+    Graph_Node_Iterator(U m) {
+        matrix = m;
         First_absolute();
-        index=0;
+        index = 0;
+        end_h= false;
+        end_v = false;
     }
 
-    void First_absolute(){
+    void First_absolute() {
 
-        node={matrix.get_length(0,0),{0,0}};
+        node = { matrix.get_length(0,0),{0,0} };
+        i = 0; j = 0;
+        end_h=end_v = false;
     };
 
-    void First_horizontal(){
+    void First_horizontal() {
 
-        node={matrix.get_length(node.second.first,0),{node.second.first,0}};
+        node = { matrix.get_length(i,0),{i,0} };
+        j = 0;
+        end_h = false;
+
     };
-    void First_verticall(){
+    void First_verticall() {
 
-        node={matrix.get_length(0,node.second.second),{0,node.second.second}};
+        node = { matrix.get_length(0,j),{0,j} };
+        i = 0;
+        end_v = false;
+
     };
+    void First_ficticall() {
+        index = 0;
+    }
 
 
+    void Next_horizontal() {
 
-    void Next_absolute(){
-        if(matrix.get_lenght()-1==node.second.first && matrix.get_lenght()-1 >node.second.second ){
-            node.first=matrix.get_length(0,++node.second.second);
-            node.second.first=0;
-        }
-         if(matrix.get_lenght()-1>node.second.first && matrix.get_lenght()-1 >node.second.second ){
-         node.first=matrix.get_length(node.second.first,++node.second.second);
-         }
-         else return;
-    };
+        if (matrix.get_size()-1 > j)
+            node.first = matrix.get_length(i, ++j);
 
-    void Next_horizontal(){
-         if( matrix.get_lenght()-1 >node.second.second ){
-         node.first=matrix.get_length(node.second.first,++node.second.second);
-         }
-         else return;
-    };
+         if (matrix.get_size() == j)
+            end_h = true;
 
-    void Next_verticall(){
-         if( matrix.get_lenght()-1 >node.second.first ){
-         node.first=matrix.get_length(++node.second.first,node.second.second);
-         }
-         else return;
+        else  if (matrix.get_size() - 1 == j)
+            j++;
+
+
     };
 
-    void Next_ficticall(){
+    void Next_verticall() {
+
+
+        if (matrix.get_size() - 1 == i)
+            i++;
+
+        else if (matrix.get_size() - 1 > i)
+            node.first = matrix.get_length(++i, j);
+
+         if (matrix.get_size() == i)
+            end_v = true;
+
+
+    };
+
+    void Next_ficticall() {
         ++index;
     };
 
-    bool isDone_absolute(){
-        return node.second.first==matrix.size_of_graph()-1 && node.second.second==matrix.size_of_graph()-1;
+
+
+    bool isDone_horizontal() {
+        if(end_h)
+        j = matrix.get_size() - 1;
+        return end_h;
     };
 
-    bool isDone_horizontal(){
-        return  node.second.second==matrix.size_of_graph()-1;
+    bool isDone_verticall() {
+        if (end_v)
+        i = matrix.get_size() - 1;
+
+        return end_v;
     };
 
-    bool isDone_verticall(){
-        return  node.second.first==matrix.size_of_graph()-1;
-    };
-
-    bool isDone_ficticall(){
-        if(index<matrix.size_of_graph())
-            return true;
-        else{ index=0;return false;}
+    bool isDone_ficticall() {
+        if (index == matrix.get_size())
+        return true;
+        else return false;
     }
 
-    T Current(){
-        return node.first;
+    T Current() {
+            return node.first;
     };
 
-private:
-    int index;
-    Node node;
-    U matrix;
+
 };
 
-template <typename T>
-class matrix_of_graph{
-    friend class Graph_Node_Iterator<T,matrix_of_graph>;
-   public:
 
-    void insert(T lenght,int i,int j){
-    mtrx[i][j]=lenght;
+
+template <typename T>
+class matrix_of_graph {
+    friend class Graph_Node_Iterator<T, matrix_of_graph<T>>;
+public:
+
+    matrix_of_graph(vector<vector<T>> a) {
+        mtrx = a;
     }
 
-    T get_length(int i,int j){
+    matrix_of_graph() {
+        mtrx = { {} };
+    }
+    void insert(T lenght, int i, int j) {
+        mtrx[i][j] = lenght;
+    }
+
+    T get_length(int i, int j) {
         return  mtrx[i][j];
     }
 
-    int size_of_graph(){
+    int get_size() {
         return mtrx.size();
     }
 
-    void set(vector<vector<T>> m){
-        mtrx=m;
+    void set(vector<vector<T>> m) {
+        mtrx = m;
     }
 
 private:
     vector<vector<T>> mtrx;
-
 };
 
+
+
+
+\
 
 
 
