@@ -173,7 +173,7 @@ void algorithm_Kruscall(Graph_Node_Iterator<T, matrix_of_graph<T>>& Graph) {
     for (Graph.First_ficticall(); !Graph.isDone_ficticall(); Graph.Next_ficticall()) {
         arb.push_back(null_);
         pert.push_back(i);
-        cout << pert[i] << "--";
+        
         i++;
     }
 
