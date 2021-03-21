@@ -150,6 +150,59 @@ private:
     vector<vector<T>> mtrx;
 };
 
+template <typename T>
+bool connected_graph(Graph_Node_Iterator<T, matrix_of_graph<T>> Graph) {
+    vector<int> vertex;
+    t_data<T>* td = new t_data<T>;
+    T null = td->T_NULL();
+    int P = 0;
+    vertex.push_back(P);
+    bool t, f;
+    int num = 0;
+    for (Graph.First_ficticall(); !Graph.isDone_ficticall(); Graph.Next_ficticall())
+        num++;
+    T node;
+    while (vertex.size() < num) {
+
+        f = false;
+
+        for (int i = 0; i < num; i++) {
+            Graph.First_absolute();
+            for (int k = 0; k < P; k++)
+                Graph.Next_verticall();
+            for (int k = 0; k < i; k++)
+                Graph.Next_horizontal();
+            node = Graph.Current();
+
+            if (node != null) {
+
+
+
+                t = false;
+                for (int k = 0; k < vertex.size(); k++) {
+                    if (i == vertex[k])
+                        t = true;
+                }
+                if (!t)
+                {
+                    f = true;
+                    P = i;
+
+                    vertex.push_back(P);
+                    break;
+                }
+
+            }
+
+        }
+        if (!f)
+            break;
+    }
+    if (vertex.size() == num)
+        return true;
+    else return false;
+}
+
 
 template <typename T>
 void algorithm_Kruscall(Graph_Node_Iterator<T, matrix_of_graph<T>>& Graph) {
