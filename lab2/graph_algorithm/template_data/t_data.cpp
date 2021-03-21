@@ -3,7 +3,7 @@
 
 
 template<> int t_data<int>::T_MAX(){
-    return 1000;
+    return 999;
 }
 
 template<> int t_data<int>::T_NULL(){
@@ -19,7 +19,7 @@ template<> std::string t_data<std::string>::T_NULL(){
 }
 
 template<> double t_data<double>::T_MAX(){
-    return 1000;
+    return 999;
 }
 
 template<> double t_data<double>::T_NULL(){
