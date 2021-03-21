@@ -234,7 +234,7 @@ void algorithm_Kruscall(Graph_Node_Iterator<T, matrix_of_graph<T>>& Graph) {
     }
 }
 
-\
+
 
 
 
