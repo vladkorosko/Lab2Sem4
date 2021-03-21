@@ -151,7 +151,88 @@ private:
 };
 
 
+template <typename T>
+void algorithm_Kruscall(Graph_Node_Iterator<T, matrix_of_graph<T>>& Graph) {
 
+    t_data<T>* td = new t_data<T>;
+    vector< vector<T>> arb = {};
+    vector<int> pert = {};
+    T INF = td->T_MAX();
+    T null = td->T_NULL();
+
+
+    vector<T> null_ = {};
+
+    for (Graph.First_ficticall(); !Graph.isDone_ficticall(); Graph.Next_ficticall())
+        null_.push_back(null);
+
+
+
+    int i = 0;
+    int arcos = 1;
+    for (Graph.First_ficticall(); !Graph.isDone_ficticall(); Graph.Next_ficticall()) {
+        arb.push_back(null_);
+        pert.push_back(i);
+        cout << pert[i] << "--";
+        i++;
+    }
+
+    int n = i;
+    int nA;
+    int nB;
+    int j;
+
+    Graph.First_ficticall();
+    while (arcos<n) {
+
+        T min = INF;
+
+        Graph.First_absolute();
+        i = 0;  j = 0;
+        for (Graph.First_verticall(); !Graph.isDone_verticall(); Graph.Next_verticall()) {
+            for (Graph.First_horizontal(); !Graph.isDone_horizontal(); Graph.Next_horizontal()) {
+
+                if (min > Graph.Current() && pert[i] != pert[j] && Graph.Current() != null) {
+                    min = Graph.Current();
+                    nA = i;
+                    nB = j;
+                }
+
+                j=(j+1)%n;
+            }
+            i++;
+        }
+
+
+
+        if (pert[nA] != pert[nB]) {
+
+            arb[nA][nB] = min;
+            arb[nB][nA] = min;
+
+
+            int temp = pert[nB];
+            pert[nB] = pert[nA];
+            for (int k = 0; k < n; k++)
+                if (pert[k] == temp)
+                    pert[k] = pert[nA];
+
+            arcos++;
+        }
+    }
+
+    Graph.First_absolute();
+    i = 0;
+    for (Graph.First_verticall(); !Graph.isDone_verticall(); Graph.Next_verticall()) {
+        j = 0;
+        for (Graph.First_horizontal(); !Graph.isDone_horizontal(); Graph.Next_horizontal()) {
+            cout << arb[i][j];
+            j++;
+        }
+        i++;
+        cout << endl;
+    }
+}
 
 \
 
