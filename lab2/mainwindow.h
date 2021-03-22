@@ -15,6 +15,19 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void HideMenu();
+    void ShowMenu();
+    void on_IntegerButton_clicked();
+
+    void on_BackButton_clicked();
+
+    void on_DoubleButton_clicked();
+
+    void on_StringButton_clicked();
+
+    //void on_ExitButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

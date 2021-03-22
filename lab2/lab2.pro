@@ -10,7 +10,6 @@ CONFIG += c++11
 
 SOURCES += \
     graph_algorithm/edge.cpp \
-    graph_algorithm/template_data/graph_list.cpp \
     graph_algorithm/template_data/t_data.cpp \
     main.cpp \
     mainwindow.cpp
