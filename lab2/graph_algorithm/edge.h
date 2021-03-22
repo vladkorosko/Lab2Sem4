@@ -33,6 +33,8 @@ public:
 
 bool IsNumber(const QString& num);
 
-Edge<std::string> CreateEdge(const QString& start, const QString& finish, const QString& weight);
+Edge<std::string> CreateEdgeString(const QString& start, const QString& finish, const QString& weight);
+Edge<int> CreateEdgeInt(const QString& start, const QString& finish, const QString& weight);
+Edge<double> CreateEdgeDouble(const QString& start, const QString& finish, const QString& weight);
 
 #endif // GRAPH_LIST_H
