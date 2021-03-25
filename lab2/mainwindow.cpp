@@ -23,6 +23,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+bool MainWindow::DialogMessage(const std::string& quest, const std::string instruction)
+{
+  QMessageBox::StandardButton reply;
+  reply = QMessageBox::question(this, QString::fromStdString(quest), QString::fromStdString(instruction),
+      QMessageBox::Yes|QMessageBox::No);
+  if (reply == QMessageBox::Yes)
+    return true;
+  else return false;
+}
+
 void MainWindow::ShowMenu()
 {
     ui->IntegerButton->show();
@@ -88,8 +98,9 @@ void MainWindow::on_BackButton_clicked()
     ui->labelWeightInt->hide();
     ui->labelWeightString->hide();
 }
-/*
+
 void MainWindow::on_ExitButton_clicked()
 {
-    delete ui;
-}*/
+    if(DialogMessage("Quit", "If you want to close programm press 'Yes'."))
+        qApp->exit();
+}

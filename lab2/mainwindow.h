@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,8 @@ public:
     ~MainWindow();
 
 private slots:
+    bool DialogMessage(const std::string& quest, const std::string instruction);
+
     void ShowMenu();
 
     void HideMenu();
@@ -33,6 +36,8 @@ private slots:
     void on_StringButton_clicked();
 
     //void on_ExitButton_clicked();
+
+    void on_ExitButton_clicked();
 
 private:
     Ui::MainWindow *ui;
