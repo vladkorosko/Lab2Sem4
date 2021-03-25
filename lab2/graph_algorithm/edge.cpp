@@ -1,13 +1,13 @@
 #include "edge.h"
 
-bool IsNumber(const QString& num)
+bool IsInteger(const QString& num)
 {
     for (auto i : num)
         if (i > '9' && i < '0')
             return false;
     return true;
 }
-/*
+
 QString IntegerPartOfNumber(const QString& d)
 {
     QString result;
@@ -18,7 +18,27 @@ QString IntegerPartOfNumber(const QString& d)
         result += *i;
     }
     return result;
-}*/
+}
+
+QString FloatPartOfNumber(const QString& d)
+{
+    QString result;
+    bool start = false;
+    for (auto i = d.begin();i != d.end(); i++)
+    {
+        if(*i=='.')
+            start = true;
+        if(start)
+            result += *i;
+    }
+    return result;
+}
+
+bool IsDouble(const QString& d)
+{
+    return (FloatPartOfNumber(d).size() != 0 && IntegerPartOfNumber(d).size() != 0
+            && IsInteger(FloatPartOfNumber(d)) && IsInteger(IntegerPartOfNumber(d)));
+}
 
 void CheckValues(const QString& start, const QString& finish)
 {
