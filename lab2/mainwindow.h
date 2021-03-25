@@ -35,11 +35,14 @@ private slots:
 
     void on_StringButton_clicked();
 
-    //void on_ExitButton_clicked();
-
     void on_ExitButton_clicked();
+
+    void on_EnterStartPoint_textEdited(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
+    bool start_ok = false;
+    bool finish_ok = false;
+    bool weight_ok = false;
 };
 #endif // MAINWINDOW_H

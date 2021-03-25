@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +40,8 @@ public:
     QLabel *labelWeightFloat;
     QLabel *labelWeightString;
     QPushButton *ButtonAddEdge;
+    QTextEdit *ErrorText;
+    QLabel *labelError;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -91,6 +94,12 @@ public:
         ButtonAddEdge = new QPushButton(centralwidget);
         ButtonAddEdge->setObjectName(QString::fromUtf8("ButtonAddEdge"));
         ButtonAddEdge->setGeometry(QRect(80, 200, 93, 28));
+        ErrorText = new QTextEdit(centralwidget);
+        ErrorText->setObjectName(QString::fromUtf8("ErrorText"));
+        ErrorText->setGeometry(QRect(30, 260, 201, 141));
+        labelError = new QLabel(centralwidget);
+        labelError->setObjectName(QString::fromUtf8("labelError"));
+        labelError->setGeometry(QRect(30, 240, 121, 16));
         MainWindow->setCentralWidget(centralwidget);
         BackButton->raise();
         IntegerButton->raise();
@@ -106,6 +115,8 @@ public:
         labelWeightFloat->raise();
         labelWeightString->raise();
         ButtonAddEdge->raise();
+        ErrorText->raise();
+        labelError->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 825, 26));
@@ -133,6 +144,7 @@ public:
         labelWeightFloat->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](float)", nullptr));
         labelWeightString->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-ZZZZZ](text)", nullptr));
         ButtonAddEdge->setText(QCoreApplication::translate("MainWindow", "Add Edge", nullptr));
+        labelError->setText(QCoreApplication::translate("MainWindow", "Errors messages", nullptr));
     } // retranslateUi
 
 };

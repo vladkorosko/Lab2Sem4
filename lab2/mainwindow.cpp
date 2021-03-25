@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
     ui->EnterWeight->hide();
+    ui->ErrorText->hide();
+    ui->ErrorText->setReadOnly(true);
+    ui->labelError->hide();
 }
 
 MainWindow::~MainWindow()
@@ -58,6 +61,8 @@ void MainWindow::ShowLineEdit()
     ui->EnterFinishPoint->show();
     ui->EnterStartPoint->show();
     ui->EnterWeight->show();
+    ui->ErrorText->show();
+    ui->labelError->show();
 }
 
 void MainWindow::HideLineEdit()
@@ -67,6 +72,8 @@ void MainWindow::HideLineEdit()
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
     ui->EnterWeight->hide();
+    ui->ErrorText->hide();
+    ui->labelError->hide();
 }
 
 void MainWindow::on_IntegerButton_clicked()
@@ -103,4 +110,9 @@ void MainWindow::on_ExitButton_clicked()
 {
     if(DialogMessage("Quit", "If you want to close programm press 'Yes'."))
         qApp->exit();
+}
+
+void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
+{
+
 }

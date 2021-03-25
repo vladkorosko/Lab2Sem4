@@ -187,6 +187,29 @@
      <string>Add Edge</string>
     </property>
    </widget>
+   <widget class="QTextEdit" name="ErrorText">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>201</width>
+      <height>141</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelError">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Errors messages</string>
+    </property>
+   </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
@@ -201,6 +224,8 @@
    <zorder>labelWeightFloat</zorder>
    <zorder>labelWeightString</zorder>
    <zorder>ButtonAddEdge</zorder>
+   <zorder>ErrorText</zorder>
+   <zorder>labelError</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

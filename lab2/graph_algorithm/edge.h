@@ -31,7 +31,8 @@ public:
     }
 };
 
-bool IsNumber(const QString& num);
+bool IsInteger(const QString& num);
+bool IsDouble(const QString& d);
 
 Edge<std::string> CreateEdgeString(const QString& start, const QString& finish, const QString& weight);
 Edge<int> CreateEdgeInt(const QString& start, const QString& finish, const QString& weight);
