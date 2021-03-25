@@ -15,10 +15,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ButtonAddEdge->hide();
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
-    ui->EnterWeight->hide();
+    ui->EnterWeightInt->hide();
+    ui->EnterWeightDouble->hide();
+    ui->EnterWeightString->hide();
     ui->ErrorText->hide();
     ui->ErrorText->setReadOnly(true);
     ui->labelError->hide();
+    ui->ErrorText->setTextColor(Qt::red);
 }
 
 MainWindow::~MainWindow()
@@ -60,7 +63,6 @@ void MainWindow::ShowLineEdit()
     ui->labelStartPoint->show();
     ui->EnterFinishPoint->show();
     ui->EnterStartPoint->show();
-    ui->EnterWeight->show();
     ui->ErrorText->show();
     ui->labelError->show();
 }
@@ -71,9 +73,15 @@ void MainWindow::HideLineEdit()
     ui->labelStartPoint->hide();
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
-    ui->EnterWeight->hide();
     ui->ErrorText->hide();
     ui->labelError->hide();
+}
+
+void MainWindow::ShowAddEdge()
+{
+    if (start_ok && finish_ok && weight_ok)
+        ui->ButtonAddEdge->show();
+    else ui->ButtonAddEdge->hide();
 }
 
 void MainWindow::on_IntegerButton_clicked()
@@ -81,6 +89,7 @@ void MainWindow::on_IntegerButton_clicked()
     HideMenu();
     ShowLineEdit();
     ui->labelWeightInt->show();
+    ui->EnterWeightInt->show();
 }
 
 void MainWindow::on_DoubleButton_clicked()
@@ -88,6 +97,7 @@ void MainWindow::on_DoubleButton_clicked()
     HideMenu();
     ShowLineEdit();
     ui->labelWeightFloat->show();
+    ui->EnterWeightDouble->show();
 }
 
 void MainWindow::on_StringButton_clicked()
@@ -95,6 +105,82 @@ void MainWindow::on_StringButton_clicked()
     HideMenu();
     ShowLineEdit();
     ui->labelWeightString->show();
+    ui->EnterWeightString->show();
+}
+
+void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
+{
+    try{
+        CheckEndsOfEdge(arg1, "Start");
+        ui->EnterStartPoint->setStyleSheet("color: green");
+        ui->ErrorText->clear();
+        start_ok = true;
+    } catch (const std::logic_error& e) {
+        ui->EnterStartPoint->setStyleSheet("color: red");
+        ui->ErrorText->setText(e.what());
+        start_ok = false;
+    }
+    ShowAddEdge();
+}
+
+void MainWindow::on_EnterFinishPoint_textEdited(const QString &arg1)
+{
+    try{
+        CheckEndsOfEdge(arg1, "Finish");
+        ui->EnterFinishPoint->setStyleSheet("color: green");
+        ui->ErrorText->clear();
+        finish_ok = true;
+    } catch (const std::logic_error& e) {
+        ui->EnterFinishPoint->setStyleSheet("color: red");
+        ui->ErrorText->setText(e.what());
+        finish_ok = false;
+    }
+    ShowAddEdge();
+}
+
+void MainWindow::on_EnterWeightInt_textEdited(const QString &arg1)
+{
+    try{
+        CheckWeightInt(arg1);
+        ui->EnterWeightInt->setStyleSheet("color: green");
+        ui->ErrorText->clear();
+        weight_ok = true;
+    } catch (const std::logic_error& e) {
+        ui->EnterWeightInt->setStyleSheet("color: red");
+        ui->ErrorText->setText(e.what());
+        weight_ok = false;
+    }
+    ShowAddEdge();
+}
+
+void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
+{
+    try{
+        CheckWeightDouble(arg1);
+        ui->EnterWeightDouble->setStyleSheet("color: green");
+        ui->ErrorText->clear();
+        weight_ok = true;
+    } catch (const std::logic_error& e) {
+        ui->EnterWeightDouble->setStyleSheet("color: red");
+        ui->ErrorText->setText(e.what());
+        weight_ok = false;
+    }
+    ShowAddEdge();
+}
+
+void MainWindow::on_EnterWeightString_textEdited(const QString &arg1)
+{
+    try{
+        CheckWeightString(arg1);
+        ui->EnterWeightString->setStyleSheet("color: green");
+        ui->ErrorText->clear();
+        weight_ok = true;
+    } catch (const std::logic_error& e) {
+        ui->EnterWeightString->setStyleSheet("color: red");
+        ui->ErrorText->setText(e.what());
+        weight_ok = false;
+    }
+    ShowAddEdge();
 }
 
 void MainWindow::on_BackButton_clicked()
@@ -104,6 +190,10 @@ void MainWindow::on_BackButton_clicked()
     ui->labelWeightFloat->hide();
     ui->labelWeightInt->hide();
     ui->labelWeightString->hide();
+    ui->EnterWeightInt->hide();
+    ui->EnterWeightDouble->hide();
+    ui->EnterWeightString->hide();
+    ui->ButtonAddEdge->hide();
 }
 
 void MainWindow::on_ExitButton_clicked()
@@ -112,7 +202,5 @@ void MainWindow::on_ExitButton_clicked()
         qApp->exit();
 }
 
-void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
-{
 
-}
+

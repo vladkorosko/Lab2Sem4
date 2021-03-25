@@ -1,5 +1,6 @@
 #ifndef GRAPH_LIST_H
-#define GRAPH_LIST_H
+#define EDGE_H
+#pragma once
 #include <iostream>
 #include <exception>
 #include "template_data/t_data.h"
@@ -33,6 +34,11 @@ public:
 
 bool IsInteger(const QString& num);
 bool IsDouble(const QString& d);
+void CheckEndsOfEdge(const QString& point, const QString& name);
+
+void CheckWeightInt(const QString& weight);
+void CheckWeightDouble(const QString& weight);
+void CheckWeightString(const QString& weight);
 
 Edge<std::string> CreateEdgeString(const QString& start, const QString& finish, const QString& weight);
 Edge<int> CreateEdgeInt(const QString& start, const QString& finish, const QString& weight);
