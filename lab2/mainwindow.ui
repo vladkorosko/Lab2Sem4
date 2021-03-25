@@ -79,11 +79,128 @@
      <string>Back</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="EnterStartPoint">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelStartPoint">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>201</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter start point [0-999](integer)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelFinishPoint">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>201</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter finish point [0-999](integer)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="EnterFinishPoint">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>110</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="EnterWeight">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelWeightInt">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter weight of edge[0-999](integer)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelWeightFloat">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter weight of edge[0-999](float)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelWeightString">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter weight of edge[0-ZZZZZ](text)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonAddEdge">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>200</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Edge</string>
+    </property>
+   </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
    <zorder>StringButton</zorder>
    <zorder>ExitButton</zorder>
+   <zorder>EnterStartPoint</zorder>
+   <zorder>labelStartPoint</zorder>
+   <zorder>labelFinishPoint</zorder>
+   <zorder>EnterFinishPoint</zorder>
+   <zorder>EnterWeight</zorder>
+   <zorder>labelWeightInt</zorder>
+   <zorder>labelWeightFloat</zorder>
+   <zorder>labelWeightString</zorder>
+   <zorder>ButtonAddEdge</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

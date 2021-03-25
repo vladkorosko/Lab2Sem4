@@ -16,8 +16,14 @@ public:
     ~MainWindow();
 
 private slots:
-    void HideMenu();
     void ShowMenu();
+
+    void HideMenu();
+
+    void ShowLineEdit();
+
+    void HideLineEdit();
+
     void on_IntegerButton_clicked();
 
     void on_BackButton_clicked();

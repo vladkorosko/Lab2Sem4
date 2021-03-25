@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -28,6 +30,15 @@ public:
     QPushButton *StringButton;
     QPushButton *ExitButton;
     QPushButton *BackButton;
+    QLineEdit *EnterStartPoint;
+    QLabel *labelStartPoint;
+    QLabel *labelFinishPoint;
+    QLineEdit *EnterFinishPoint;
+    QLineEdit *EnterWeight;
+    QLabel *labelWeightInt;
+    QLabel *labelWeightFloat;
+    QLabel *labelWeightString;
+    QPushButton *ButtonAddEdge;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -53,12 +64,48 @@ public:
         BackButton = new QPushButton(centralwidget);
         BackButton->setObjectName(QString::fromUtf8("BackButton"));
         BackButton->setGeometry(QRect(260, 430, 251, 81));
+        EnterStartPoint = new QLineEdit(centralwidget);
+        EnterStartPoint->setObjectName(QString::fromUtf8("EnterStartPoint"));
+        EnterStartPoint->setGeometry(QRect(30, 60, 201, 22));
+        labelStartPoint = new QLabel(centralwidget);
+        labelStartPoint->setObjectName(QString::fromUtf8("labelStartPoint"));
+        labelStartPoint->setGeometry(QRect(30, 40, 201, 16));
+        labelFinishPoint = new QLabel(centralwidget);
+        labelFinishPoint->setObjectName(QString::fromUtf8("labelFinishPoint"));
+        labelFinishPoint->setGeometry(QRect(30, 90, 201, 16));
+        EnterFinishPoint = new QLineEdit(centralwidget);
+        EnterFinishPoint->setObjectName(QString::fromUtf8("EnterFinishPoint"));
+        EnterFinishPoint->setGeometry(QRect(30, 110, 201, 22));
+        EnterWeight = new QLineEdit(centralwidget);
+        EnterWeight->setObjectName(QString::fromUtf8("EnterWeight"));
+        EnterWeight->setGeometry(QRect(30, 160, 201, 22));
+        labelWeightInt = new QLabel(centralwidget);
+        labelWeightInt->setObjectName(QString::fromUtf8("labelWeightInt"));
+        labelWeightInt->setGeometry(QRect(30, 140, 231, 16));
+        labelWeightFloat = new QLabel(centralwidget);
+        labelWeightFloat->setObjectName(QString::fromUtf8("labelWeightFloat"));
+        labelWeightFloat->setGeometry(QRect(30, 140, 231, 16));
+        labelWeightString = new QLabel(centralwidget);
+        labelWeightString->setObjectName(QString::fromUtf8("labelWeightString"));
+        labelWeightString->setGeometry(QRect(30, 140, 231, 16));
+        ButtonAddEdge = new QPushButton(centralwidget);
+        ButtonAddEdge->setObjectName(QString::fromUtf8("ButtonAddEdge"));
+        ButtonAddEdge->setGeometry(QRect(80, 200, 93, 28));
         MainWindow->setCentralWidget(centralwidget);
         BackButton->raise();
         IntegerButton->raise();
         DoubleButton->raise();
         StringButton->raise();
         ExitButton->raise();
+        EnterStartPoint->raise();
+        labelStartPoint->raise();
+        labelFinishPoint->raise();
+        EnterFinishPoint->raise();
+        EnterWeight->raise();
+        labelWeightInt->raise();
+        labelWeightFloat->raise();
+        labelWeightString->raise();
+        ButtonAddEdge->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 825, 26));
@@ -80,6 +127,12 @@ public:
         StringButton->setText(QCoreApplication::translate("MainWindow", "String Graph", nullptr));
         ExitButton->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         BackButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        labelStartPoint->setText(QCoreApplication::translate("MainWindow", "Enter start point [0-999](integer)", nullptr));
+        labelFinishPoint->setText(QCoreApplication::translate("MainWindow", "Enter finish point [0-999](integer)", nullptr));
+        labelWeightInt->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](integer)", nullptr));
+        labelWeightFloat->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](float)", nullptr));
+        labelWeightString->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-ZZZZZ](text)", nullptr));
+        ButtonAddEdge->setText(QCoreApplication::translate("MainWindow", "Add Edge", nullptr));
     } // retranslateUi
 
 };
