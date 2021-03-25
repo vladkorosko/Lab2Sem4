@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include "graph_algorithm/edge.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,8 @@ private slots:
 
     void HideLineEdit();
 
+    void ShowAddEdge();
+
     void on_IntegerButton_clicked();
 
     void on_BackButton_clicked();
@@ -38,6 +41,14 @@ private slots:
     void on_ExitButton_clicked();
 
     void on_EnterStartPoint_textEdited(const QString &arg1);
+
+    void on_EnterFinishPoint_textEdited(const QString &arg1);
+
+    void on_EnterWeightString_textEdited(const QString &arg1);
+
+    void on_EnterWeightDouble_textEdited(const QString &arg1);
+
+    void on_EnterWeightInt_textEdited(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

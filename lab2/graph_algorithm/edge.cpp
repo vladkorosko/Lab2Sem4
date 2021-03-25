@@ -2,8 +2,10 @@
 
 bool IsInteger(const QString& num)
 {
+    if(num.size()==0)
+        return false;
     for (auto i : num)
-        if (i > '9' && i < '0')
+        if (i > '9' || i < '0')
             return false;
     return true;
 }
@@ -40,49 +42,75 @@ bool IsDouble(const QString& d)
             && IsInteger(FloatPartOfNumber(d)) && IsInteger(IntegerPartOfNumber(d)));
 }
 
-void CheckValues(const QString& start, const QString& finish)
+void CheckEndsOfEdge(const QString& point, const QString& name)
 {
-    if (start.size() > 3)
-        throw std::logic_error("Start point is greater than largest possible value(999): " + start.toStdString());
-    if (finish.size() > 3)
-        throw std::logic_error("Finish point is greater than largest possible value(999): " + finish.toStdString());
+    if(!IsInteger(point))
+        throw std::logic_error(name.toStdString() + " point is not an integer number: " + point.toStdString() + ". ");
+    if (point.size() > 3)
+        throw std::logic_error(name.toStdString() + " point is greater than largest possible value(999): " + point.toStdString()+ ". ");
 }
 
-Edge<std::string> CreateEdgeString(const QString& start, const QString& finish, const QString& weight)
+void CheckWeightInt(const QString& weight)
 {
-    try {
-        CheckValues(start, finish);
-    }  catch (std::logic_error& e) {
-        throw e;
-    }
+    if(!IsInteger(weight))
+        throw std::logic_error("Weight is not an integer number: " + weight.toStdString() + ". ");
+    if (weight.size() > 3)
+        throw std::logic_error("Weight is greater than largest possible value(999): " + weight.toStdString()+ ". ");
+}
+
+void CheckWeightDouble(const QString& weight)
+{
+    if(!IsDouble(weight))
+        throw std::logic_error("Weight is not an float number: " + weight.toStdString() + ". ");
+    t_data<double> el;
+    if (weight > QString::number(el.T_MAX()))
+        throw std::logic_error("Weight is greater than largest possible value(" +
+                               std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
+}
+
+void CheckWeightString(const QString& weight)
+{
     t_data<std::string> el;
     if (weight.toStdString() > el.T_MAX())
-        throw std::logic_error("Weight is greater than largest possible value(" + el.T_MAX() + "): " + weight.toStdString());
-    return Edge<std::string>(start.toInt(), finish.toInt(), weight.toStdString());
+        throw std::logic_error("Weight is greater than largest possible value(" + el.T_MAX() + "): " + weight.toStdString() + ". ");
 }
 
 Edge<int> CreateEdgeInt(const QString& start, const QString& finish, const QString& weight)
 {
-    try {
-        CheckValues(start, finish);
-    }  catch (std::logic_error& e) {
-        throw e;
-    }
+  //  try {
+  //      CheckValues(start, finish);
+  //  }  catch (std::logic_error& e) {
+  //      throw e;
+  //  }
     t_data<int> el;
     if (weight > QString::number(el.T_MAX()))
-        throw std::logic_error("Weight is greater than largest possible value(" + std::to_string(el.T_MAX()) + "): " + weight.toStdString());
+        throw std::logic_error("Weight is greater than largest possible value(" + std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
     return Edge<int>(start.toInt(), finish.toInt(), weight.toInt());
 }
 
 Edge<double> CreateEdgeDouble(const QString& start, const QString& finish, const QString& weight)
 {
+ //   try {
+ //       CheckValues(start, finish);
+ //   }  catch (std::logic_error& e) {
+ //       throw e;
+ //   }
+    t_data<double> el;
+    if (weight > QString::number(el.T_MAX()))
+        throw std::logic_error("Weight is greater than largest possible value(" + std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
+    return Edge<double>(start.toInt(), finish.toInt(), weight.toDouble());
+}
+
+Edge<std::string> CreateEdgeString(const QString& start, const QString& finish, const QString& weight)
+{
+    /*
     try {
         CheckValues(start, finish);
     }  catch (std::logic_error& e) {
         throw e;
-    }
-    t_data<double> el;
-    if (weight > QString::number(el.T_MAX()))
-        throw std::logic_error("Weight is greater than largest possible value(" + std::to_string(el.T_MAX()) + "): " + weight.toStdString());
-    return Edge<double>(start.toInt(), finish.toInt(), weight.toDouble());
+    }*/
+    t_data<std::string> el;
+    if (weight.toStdString() > el.T_MAX())
+        throw std::logic_error("Weight is greater than largest possible value(" + el.T_MAX() + "): " + weight.toStdString() + ". ");
+    return Edge<std::string>(start.toInt(), finish.toInt(), weight.toStdString());
 }

@@ -125,7 +125,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="EnterWeight">
+   <widget class="QLineEdit" name="EnterWeightInt">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -210,6 +210,26 @@
      <string>Errors messages</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="EnterWeightDouble">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="EnterWeightString">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
@@ -219,13 +239,15 @@
    <zorder>labelStartPoint</zorder>
    <zorder>labelFinishPoint</zorder>
    <zorder>EnterFinishPoint</zorder>
-   <zorder>EnterWeight</zorder>
+   <zorder>EnterWeightInt</zorder>
    <zorder>labelWeightInt</zorder>
    <zorder>labelWeightFloat</zorder>
    <zorder>labelWeightString</zorder>
    <zorder>ButtonAddEdge</zorder>
    <zorder>ErrorText</zorder>
    <zorder>labelError</zorder>
+   <zorder>EnterWeightDouble</zorder>
+   <zorder>EnterWeightString</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

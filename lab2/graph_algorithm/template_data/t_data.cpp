@@ -11,7 +11,7 @@ template<> int t_data<int>::T_NULL(){
 }
 
 template<> std::string t_data<std::string>::T_MAX(){
-    return "ZZZZZ";
+    return "zzzzz";
 }
 
 template<> std::string t_data<std::string>::T_NULL(){
