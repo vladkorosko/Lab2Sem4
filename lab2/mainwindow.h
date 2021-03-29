@@ -54,7 +54,7 @@ private slots:
 
     void on_EnterWeightInt_textEdited(const QString &arg1);
 
-    //void on_ButtonAddEdge_clicked();
+    void on_ButtonAddEdge_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -67,5 +67,6 @@ private:
     QString start_error;
     QString finish_error;
     QString weight_error;
+    QString type;
 };
 #endif // MAINWINDOW_H

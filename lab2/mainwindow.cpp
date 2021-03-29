@@ -96,6 +96,7 @@ void MainWindow::on_IntegerButton_clicked()
     ShowLineEdit();
     ui->labelWeightInt->show();
     ui->EnterWeightInt->show();
+    type="int";
 }
 
 void MainWindow::on_DoubleButton_clicked()
@@ -104,6 +105,7 @@ void MainWindow::on_DoubleButton_clicked()
     ShowLineEdit();
     ui->labelWeightFloat->show();
     ui->EnterWeightDouble->show();
+    type = "double";
 }
 
 void MainWindow::on_StringButton_clicked()
@@ -112,6 +114,7 @@ void MainWindow::on_StringButton_clicked()
     ShowLineEdit();
     ui->labelWeightString->show();
     ui->EnterWeightString->show();
+    type = "string";
 }
 /*
 void MainWindow::Read(QString& value, QString& error, bool& is_ok, void (*f)(const QString&, const QString&), const QString &arg1)
@@ -280,4 +283,27 @@ void MainWindow::on_ExitButton_clicked()
 {
     if(DialogMessage("Quit", "If you want to close programm press 'Yes'."))
         qApp->exit();
+}
+
+
+
+void MainWindow::on_ButtonAddEdge_clicked()
+{
+    if (type == "int")
+    {
+        Edge<int> a = CreateEdgeInt(start, finish, weight);
+        ui->EnterWeightInt->clear();
+    }
+    if (type == "double")
+    {
+        Edge<int> a = CreateEdgeInt(start, finish, weight);
+        ui->EnterWeightDouble->clear();
+    }
+    if (type == "string")
+    {
+        Edge<int> a = CreateEdgeInt(start, finish, weight);
+        ui->EnterWeightString->clear();
+    }
+    ui->EnterStartPoint->clear();
+    ui->EnterFinishPoint->clear();
 }

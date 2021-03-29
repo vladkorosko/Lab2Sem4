@@ -155,6 +155,7 @@ public:
         labelWeightString->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-ZZZZZ](text)", nullptr));
         ButtonAddEdge->setText(QCoreApplication::translate("MainWindow", "Add Edge", nullptr));
         labelError->setText(QCoreApplication::translate("MainWindow", "Errors messages", nullptr));
+        EnterWeightString->setText(QString());
     } // retranslateUi
 
 };
