@@ -2,8 +2,6 @@
 
 bool IsInteger(const QString& num)
 {
-    if(num.size()==0)
-        return false;
     for (auto i : num)
         if (i > '9' || i < '0')
             return false;
@@ -42,6 +40,70 @@ bool IsDouble(const QString& d)
             && IsInteger(FloatPartOfNumber(d)) && IsInteger(IntegerPartOfNumber(d)));
 }
 
+bool BiggerQString(const QString& lhs, const QString& rhs)
+{
+    if (lhs.size()==0&&rhs.size()==0)
+        return false;
+    if (lhs.size() > rhs.size())
+        return true;
+    if (rhs.size() > lhs.size())
+        return false;
+    for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+        if(lhs[i]<rhs[i])
+            return false;
+    if (*lhs.rbegin() == *rhs.rbegin())
+        return false;
+    return true;
+}
+
+bool BiggerQString(const std::string& lhs, const std::string& rhs)
+{
+    if (lhs.size()==0&&rhs.size()==0)
+        return false;
+    if (lhs.size() > rhs.size())
+        return true;
+    if (rhs.size() > lhs.size())
+        return false;
+    for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+        if(lhs[i]<rhs[i])
+            return false;
+    if (*lhs.rbegin() == *rhs.rbegin())
+        return false;
+    return true;
+}
+
+bool SmallerQString(const QString& lhs, const QString& rhs)
+{
+    if (lhs.size()==0 && rhs.size()==0)
+        return false;
+    if (lhs.size() > rhs.size())
+        return false;
+    if (rhs.size() > lhs.size())
+        return true;
+    for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+        if(lhs[i]>rhs[i])
+            return false;
+    if (*lhs.rbegin() == *rhs.rbegin())
+        return false;
+    return true;
+}
+
+bool SmallerQString(const std::string& lhs, const std::string& rhs)
+{
+    if (lhs.size()==0 && rhs.size()==0)
+        return false;
+    if (lhs.size() > rhs.size())
+        return false;
+    if (rhs.size() > lhs.size())
+        return true;
+    for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+        if(lhs[i]>rhs[i])
+            return false;
+    if (*lhs.rbegin() == *rhs.rbegin())
+        return false;
+    return true;
+}
+
 void CheckEndsOfEdge(const QString& point, const QString& name)
 {
     if(!IsInteger(point))
@@ -63,7 +125,7 @@ void CheckWeightDouble(const QString& weight)
     if(!IsDouble(weight))
         throw std::logic_error("Weight is not an float number: " + weight.toStdString() + ". ");
     t_data<double> el;
-    if (weight > QString::number(el.T_MAX()))
+    if (BiggerQString(weight, QString::number(el.T_MAX())))
         throw std::logic_error("Weight is greater than largest possible value(" +
                                std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
 }
@@ -71,46 +133,21 @@ void CheckWeightDouble(const QString& weight)
 void CheckWeightString(const QString& weight)
 {
     t_data<std::string> el;
-    if (weight.toStdString() > el.T_MAX())
+    if (BiggerQString(weight.toStdString(), el.T_MAX()))
         throw std::logic_error("Weight is greater than largest possible value(" + el.T_MAX() + "): " + weight.toStdString() + ". ");
 }
 
 Edge<int> CreateEdgeInt(const QString& start, const QString& finish, const QString& weight)
 {
-  //  try {
-  //      CheckValues(start, finish);
-  //  }  catch (std::logic_error& e) {
-  //      throw e;
-  //  }
-    t_data<int> el;
-    if (weight > QString::number(el.T_MAX()))
-        throw std::logic_error("Weight is greater than largest possible value(" + std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
     return Edge<int>(start.toInt(), finish.toInt(), weight.toInt());
 }
 
 Edge<double> CreateEdgeDouble(const QString& start, const QString& finish, const QString& weight)
 {
- //   try {
- //       CheckValues(start, finish);
- //   }  catch (std::logic_error& e) {
- //       throw e;
- //   }
-    t_data<double> el;
-    if (weight > QString::number(el.T_MAX()))
-        throw std::logic_error("Weight is greater than largest possible value(" + std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
     return Edge<double>(start.toInt(), finish.toInt(), weight.toDouble());
 }
 
 Edge<std::string> CreateEdgeString(const QString& start, const QString& finish, const QString& weight)
 {
-    /*
-    try {
-        CheckValues(start, finish);
-    }  catch (std::logic_error& e) {
-        throw e;
-    }*/
-    t_data<std::string> el;
-    if (weight.toStdString() > el.T_MAX())
-        throw std::logic_error("Weight is greater than largest possible value(" + el.T_MAX() + "): " + weight.toStdString() + ". ");
     return Edge<std::string>(start.toInt(), finish.toInt(), weight.toStdString());
 }

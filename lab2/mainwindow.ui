@@ -229,6 +229,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
