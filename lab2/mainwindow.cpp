@@ -84,6 +84,12 @@ void MainWindow::ShowAddEdge()
     else ui->ButtonAddEdge->hide();
 }
 
+void MainWindow::ShowErrors()
+{
+    QString res = start_error + finish_error + weight_error;
+    ui->ErrorText->setText(res);
+}
+
 void MainWindow::on_IntegerButton_clicked()
 {
     HideMenu();
@@ -107,80 +113,118 @@ void MainWindow::on_StringButton_clicked()
     ui->labelWeightString->show();
     ui->EnterWeightString->show();
 }
+/*
+void MainWindow::Read(QString& value, QString& error, bool& is_ok, void (*f)(const QString&, const QString&), const QString &arg1)
+{
+    value = arg1;
+    try{
+        f(arg1, "Start");
+        ui->EnterStartPoint->setStyleSheet("color: green");
+        ui->ErrorText->clear();
+        is_ok = true;
+        error="";
+    } catch (const std::logic_error& e) {
+        ui->EnterStartPoint->setStyleSheet("color: red");
+        error = e.what();
+        is_ok = false;
+    }
+    if(arg1.size()==0)
+    {
+        is_ok=false;
+        ui->EnterWeightString->setStyleSheet("color: red");
+        error = "Field is empty.";
+    }
+    ShowAddEdge();
+}*/
 
 void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
 {
+    start = arg1;
     try{
         CheckEndsOfEdge(arg1, "Start");
         ui->EnterStartPoint->setStyleSheet("color: green");
         ui->ErrorText->clear();
         start_ok = true;
+        start_error="";
     } catch (const std::logic_error& e) {
         ui->EnterStartPoint->setStyleSheet("color: red");
-        ui->ErrorText->setText(e.what());
+        start_error = e.what();
+        start_error += '\n';
         start_ok = false;
     }
     if(arg1.size()==0)
     {
         start_ok=false;
         ui->EnterWeightString->setStyleSheet("color: red");
-        ui->ErrorText->setText("Field is empty.");
+        start_error = "Field is empty.\n";
     }
     ShowAddEdge();
+    ShowErrors();
 }
 
 void MainWindow::on_EnterFinishPoint_textEdited(const QString &arg1)
 {
+    finish = arg1;
     try{
         CheckEndsOfEdge(arg1, "Finish");
         ui->EnterFinishPoint->setStyleSheet("color: green");
         ui->ErrorText->clear();
         finish_ok = true;
+        finish_error="";
     } catch (const std::logic_error& e) {
         ui->EnterFinishPoint->setStyleSheet("color: red");
-        ui->ErrorText->setText(e.what());
+        finish_error = e.what();
+        finish_error += '\n';
         finish_ok = false;
     }
     if(arg1.size()==0)
     {
         finish_ok=false;
         ui->EnterWeightString->setStyleSheet("color: red");
-        ui->ErrorText->setText("Field is empty.");
+        finish_error = "Field is empty.\n";
     }
     ShowAddEdge();
+    ShowErrors();
 }
 
 void MainWindow::on_EnterWeightInt_textEdited(const QString &arg1)
 {
+    weight = arg1;
     try{
         CheckWeightInt(arg1);
         ui->EnterWeightInt->setStyleSheet("color: green");
         ui->ErrorText->clear();
         weight_ok = true;
+        weight_error = "";
     } catch (const std::logic_error& e) {
         ui->EnterWeightInt->setStyleSheet("color: red");
-        ui->ErrorText->setText(e.what());
+        weight_error = e.what();
+        weight_error += '\n';
         weight_ok = false;
     }
     if(arg1.size()==0)
     {
         weight_ok=false;
         ui->EnterWeightString->setStyleSheet("color: red");
-        ui->ErrorText->setText("Field is empty.");
+        weight_error = "Field is empty.\n";
     }
     ShowAddEdge();
+    ShowErrors();
 }
 
 void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
 {
+    weight = arg1;
     try{
         CheckWeightDouble(arg1);
         ui->EnterWeightDouble->setStyleSheet("color: green");
         ui->ErrorText->clear();
         weight_ok = true;
+        weight_error = "";
     } catch (const std::logic_error& e) {
         ui->EnterWeightDouble->setStyleSheet("color: red");
-        ui->ErrorText->setText(e.what());
+        weight_error = e.what();
+        weight_error += '\n';
         weight_ok = false;
     }
     if(arg1.size()==0)
@@ -188,29 +232,35 @@ void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
         weight_ok=false;
         ui->EnterWeightString->setStyleSheet("color: red");
         ui->ErrorText->setText("Field is empty.");
+        weight_error = "Field is empty.\n";
     }
     ShowAddEdge();
+    ShowErrors();
 }
 
 void MainWindow::on_EnterWeightString_textEdited(const QString &arg1)
 {
+    weight = arg1;
     try{
         CheckWeightString(arg1);
         ui->EnterWeightString->setStyleSheet("color: green");
         ui->ErrorText->clear();
         weight_ok = true;
+        weight_error = "";
     } catch (const std::logic_error& e) {
         ui->EnterWeightString->setStyleSheet("color: red");
-        ui->ErrorText->setText(e.what());
+        weight_error = e.what();
+        weight_error += '\n';
         weight_ok = false;
     }
     if(arg1.size()==0)
     {
         weight_ok=false;
         ui->EnterWeightString->setStyleSheet("color: red");
-        ui->ErrorText->setText("Field is empty.");
+        weight_error = "Field is empty.\n";
     }
     ShowAddEdge();
+    ShowErrors();
 }
 
 void MainWindow::on_BackButton_clicked()
@@ -231,6 +281,3 @@ void MainWindow::on_ExitButton_clicked()
     if(DialogMessage("Quit", "If you want to close programm press 'Yes'."))
         qApp->exit();
 }
-
-
-

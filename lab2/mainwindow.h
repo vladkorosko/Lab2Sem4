@@ -30,6 +30,10 @@ private slots:
 
     void ShowAddEdge();
 
+    void ShowErrors();
+
+    //void Read(QString& value, QString& error, bool& is_ok, void (*f)(const QString&, const QString&), const QString &arg1);
+
     void on_IntegerButton_clicked();
 
     void on_BackButton_clicked();
@@ -50,10 +54,18 @@ private slots:
 
     void on_EnterWeightInt_textEdited(const QString &arg1);
 
+    //void on_ButtonAddEdge_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool start_ok = false;
     bool finish_ok = false;
     bool weight_ok = false;
+    QString start;
+    QString finish;
+    QString weight;
+    QString start_error;
+    QString finish_error;
+    QString weight_error;
 };
 #endif // MAINWINDOW_H
