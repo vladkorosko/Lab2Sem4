@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QTableWidgetItem>
 #include "graph_algorithm/edge.h"
 
 QT_BEGIN_NAMESPACE
@@ -61,9 +62,6 @@ private:
     bool start_ok = false;
     bool finish_ok = false;
     bool weight_ok = false;
-    QString start;
-    QString finish;
-    QString weight;
     QString start_error;
     QString finish_error;
     QString weight_error;

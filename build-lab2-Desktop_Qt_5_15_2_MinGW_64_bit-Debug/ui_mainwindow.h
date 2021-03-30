@@ -11,12 +11,14 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
@@ -44,6 +46,7 @@ public:
     QLabel *labelError;
     QLineEdit *EnterWeightDouble;
     QLineEdit *EnterWeightString;
+    QTableWidget *TableGraph;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -51,7 +54,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(825, 585);
+        MainWindow->resize(1230, 644);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         IntegerButton = new QPushButton(centralwidget);
@@ -59,16 +62,16 @@ public:
         IntegerButton->setGeometry(QRect(260, 40, 251, 81));
         DoubleButton = new QPushButton(centralwidget);
         DoubleButton->setObjectName(QString::fromUtf8("DoubleButton"));
-        DoubleButton->setGeometry(QRect(260, 170, 251, 81));
+        DoubleButton->setGeometry(QRect(260, 190, 251, 81));
         StringButton = new QPushButton(centralwidget);
         StringButton->setObjectName(QString::fromUtf8("StringButton"));
-        StringButton->setGeometry(QRect(260, 300, 251, 81));
+        StringButton->setGeometry(QRect(260, 340, 251, 81));
         ExitButton = new QPushButton(centralwidget);
         ExitButton->setObjectName(QString::fromUtf8("ExitButton"));
-        ExitButton->setGeometry(QRect(260, 430, 251, 81));
+        ExitButton->setGeometry(QRect(260, 480, 251, 81));
         BackButton = new QPushButton(centralwidget);
         BackButton->setObjectName(QString::fromUtf8("BackButton"));
-        BackButton->setGeometry(QRect(260, 430, 251, 81));
+        BackButton->setGeometry(QRect(260, 480, 251, 81));
         EnterStartPoint = new QLineEdit(centralwidget);
         EnterStartPoint->setObjectName(QString::fromUtf8("EnterStartPoint"));
         EnterStartPoint->setGeometry(QRect(30, 60, 201, 22));
@@ -108,6 +111,9 @@ public:
         EnterWeightString = new QLineEdit(centralwidget);
         EnterWeightString->setObjectName(QString::fromUtf8("EnterWeightString"));
         EnterWeightString->setGeometry(QRect(30, 160, 201, 22));
+        TableGraph = new QTableWidget(centralwidget);
+        TableGraph->setObjectName(QString::fromUtf8("TableGraph"));
+        TableGraph->setGeometry(QRect(550, 40, 551, 481));
         MainWindow->setCentralWidget(centralwidget);
         BackButton->raise();
         IntegerButton->raise();
@@ -127,9 +133,10 @@ public:
         labelError->raise();
         EnterWeightDouble->raise();
         EnterWeightString->raise();
+        TableGraph->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 825, 26));
+        menubar->setGeometry(QRect(0, 0, 1230, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
