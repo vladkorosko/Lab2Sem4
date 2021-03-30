@@ -22,6 +22,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ErrorText->setReadOnly(true);
     ui->labelError->hide();
     ui->ErrorText->setTextColor(Qt::red);
+    ui->TableGraph->setRowCount(10);
+    ui->TableGraph->setColumnCount(10);
+    ui->TableGraph->verticalHeader()->setDefaultSectionSize(40);
+    ui->TableGraph->horizontalHeader()->setDefaultSectionSize(40);
+    ui->TableGraph->hide();
 }
 
 MainWindow::~MainWindow()
@@ -65,6 +70,7 @@ void MainWindow::ShowLineEdit()
     ui->EnterStartPoint->show();
     ui->ErrorText->show();
     ui->labelError->show();
+    ui->TableGraph->show();
 }
 
 void MainWindow::HideLineEdit()
@@ -75,6 +81,27 @@ void MainWindow::HideLineEdit()
     ui->EnterStartPoint->hide();
     ui->ErrorText->hide();
     ui->labelError->hide();
+    ui->TableGraph->hide();
+    ui->EnterStartPoint->clear();
+    ui->EnterFinishPoint->clear();
+    ui->labelWeightFloat->hide();
+    ui->labelWeightInt->hide();
+    ui->labelWeightString->hide();
+    ui->EnterWeightInt->clear();
+    ui->EnterWeightDouble->clear();
+    ui->EnterWeightString->clear();
+    start_error = "";
+    finish_error="";
+    weight_error="";
+    start_ok = false;
+    finish_ok = false;
+    weight_ok = false;
+    ui->ErrorText->clear();
+    ui->EnterWeightInt->hide();
+    ui->EnterWeightDouble->hide();
+    ui->EnterWeightString->hide();
+    ui->ButtonAddEdge->hide();
+    ui->TableGraph->clear();
 }
 
 void MainWindow::ShowAddEdge()
@@ -142,7 +169,6 @@ void MainWindow::Read(QString& value, QString& error, bool& is_ok, void (*f)(con
 
 void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
 {
-    start = arg1;
     try{
         CheckEndsOfEdge(arg1, "Start");
         ui->EnterStartPoint->setStyleSheet("color: green");
@@ -167,7 +193,6 @@ void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
 
 void MainWindow::on_EnterFinishPoint_textEdited(const QString &arg1)
 {
-    finish = arg1;
     try{
         CheckEndsOfEdge(arg1, "Finish");
         ui->EnterFinishPoint->setStyleSheet("color: green");
@@ -192,7 +217,6 @@ void MainWindow::on_EnterFinishPoint_textEdited(const QString &arg1)
 
 void MainWindow::on_EnterWeightInt_textEdited(const QString &arg1)
 {
-    weight = arg1;
     try{
         CheckWeightInt(arg1);
         ui->EnterWeightInt->setStyleSheet("color: green");
@@ -217,7 +241,6 @@ void MainWindow::on_EnterWeightInt_textEdited(const QString &arg1)
 
 void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
 {
-    weight = arg1;
     try{
         CheckWeightDouble(arg1);
         ui->EnterWeightDouble->setStyleSheet("color: green");
@@ -243,7 +266,6 @@ void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
 
 void MainWindow::on_EnterWeightString_textEdited(const QString &arg1)
 {
-    weight = arg1;
     try{
         CheckWeightString(arg1);
         ui->EnterWeightString->setStyleSheet("color: green");
@@ -270,13 +292,6 @@ void MainWindow::on_BackButton_clicked()
 {
     ShowMenu();
     HideLineEdit();
-    ui->labelWeightFloat->hide();
-    ui->labelWeightInt->hide();
-    ui->labelWeightString->hide();
-    ui->EnterWeightInt->hide();
-    ui->EnterWeightDouble->hide();
-    ui->EnterWeightString->hide();
-    ui->ButtonAddEdge->hide();
 }
 
 void MainWindow::on_ExitButton_clicked()
@@ -291,19 +306,26 @@ void MainWindow::on_ButtonAddEdge_clicked()
 {
     if (type == "int")
     {
-        Edge<int> a = CreateEdgeInt(start, finish, weight);
+        Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt()), (ui->EnterFinishPoint->text().toInt()),
+                                new QTableWidgetItem (ui->EnterWeightInt->text()));
         ui->EnterWeightInt->clear();
     }
     if (type == "double")
     {
-        Edge<int> a = CreateEdgeInt(start, finish, weight);
+        Edge<double> a = CreateEdgeDouble(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt()), (ui->EnterFinishPoint->text().toInt()),
+                                new QTableWidgetItem (ui->EnterWeightDouble->text()));
         ui->EnterWeightDouble->clear();
     }
     if (type == "string")
     {
-        Edge<int> a = CreateEdgeInt(start, finish, weight);
+        Edge<std::string> a = CreateEdgeString(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt()), (ui->EnterFinishPoint->text().toInt()),
+                                new QTableWidgetItem (ui->EnterWeightString->text()));
         ui->EnterWeightString->clear();
     }
     ui->EnterStartPoint->clear();
     ui->EnterFinishPoint->clear();
+    ui->ButtonAddEdge->hide();
 }

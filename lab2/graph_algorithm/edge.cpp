@@ -26,17 +26,17 @@ QString FloatPartOfNumber(const QString& d)
     bool start = false;
     for (auto i = d.begin();i != d.end(); i++)
     {
-        if(*i=='.')
-            start = true;
         if(start)
             result += *i;
+        if(*i=='.')
+            start = true;
     }
     return result;
 }
 
 bool IsDouble(const QString& d)
 {
-    return (FloatPartOfNumber(d).size() != 0 && IntegerPartOfNumber(d).size() != 0
+    return (IntegerPartOfNumber(d).size() != 0
             && IsInteger(FloatPartOfNumber(d)) && IsInteger(IntegerPartOfNumber(d)));
 }
 
@@ -125,7 +125,7 @@ void CheckWeightDouble(const QString& weight)
     if(!IsDouble(weight))
         throw std::logic_error("Weight is not an float number: " + weight.toStdString() + ". ");
     t_data<double> el;
-    if (BiggerQString(weight, QString::number(el.T_MAX())))
+    if (IntegerPartOfNumber(weight).size() > 3 || FloatPartOfNumber(weight).size() > 3)
         throw std::logic_error("Weight is greater than largest possible value(" +
                                std::to_string(el.T_MAX()) + "): " + weight.toStdString() + ". ");
 }

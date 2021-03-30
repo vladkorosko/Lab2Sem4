@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>825</width>
-    <height>585</height>
+    <width>1230</width>
+    <height>644</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>170</y>
+      <y>190</y>
       <width>251</width>
       <height>81</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>300</y>
+      <y>340</y>
       <width>251</width>
       <height>81</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>430</y>
+      <y>480</y>
       <width>251</width>
       <height>81</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>430</y>
+      <y>480</y>
       <width>251</width>
       <height>81</height>
      </rect>
@@ -233,6 +233,16 @@
      <string/>
     </property>
    </widget>
+   <widget class="QTableWidget" name="TableGraph">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>40</y>
+      <width>551</width>
+      <height>481</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
@@ -251,13 +261,14 @@
    <zorder>labelError</zorder>
    <zorder>EnterWeightDouble</zorder>
    <zorder>EnterWeightString</zorder>
+   <zorder>TableGraph</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>825</width>
+     <width>1230</width>
      <height>26</height>
     </rect>
    </property>
