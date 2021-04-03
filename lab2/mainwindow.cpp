@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "graph_algorithm/graph.h"
+#include "transfer_to_matrix.hpp"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -309,15 +312,17 @@ void MainWindow::on_ButtonAddEdge_clicked()
 {
     if (type == "int")
     {
-        Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
-        edge_int.push_back(a);
+
+        Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightInt->text());
+       edge_int.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightInt->text()));
+
         ui->EnterWeightInt->clear();
     }
     if (type == "double")
     {
-        Edge<double> a = CreateEdgeDouble(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+        Edge<double> a = CreateEdgeDouble(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightDouble->text());
           edge_double.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() -1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightDouble->text()));
@@ -340,6 +345,29 @@ void MainWindow::on_ButtonAddEdge_clicked()
 
 void MainWindow::on_ShowGraphButton_clicked()
 {
+   if(type == "int"){
+      //
+       for(int i =0 ;i<edge_int.size();i++)
+           cout<< edge_int[i].GetStart()<<" "<< edge_int[i].GetFinish()<<" "<< edge_int[i].GetWeight()<<endl;
+      vector<vector<pair<int,pair<int,int>>>> err=transfer_to_matrix(edge_int);
+      for(int i=0;i<err.size();i++){
+           for(int j=0;j<err[i].size();j++)
+               cout<<err[i][j].first<<" ";
+           cout<<endl;
+      }
+    }
+    if(type == "double"){
+
+       //   Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(edge_double);
+    }
+    if(type == "string"){
+
+        //  Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(edge_string);
+    }
+
+
+
+
     QGraphicsScene* Q = new QGraphicsScene();
     Q->setSceneRect(-500,-500,1000,1000);
     QGraphicsEllipseItem* rect1= new QGraphicsEllipseItem();

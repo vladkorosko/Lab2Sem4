@@ -18,7 +18,8 @@ HEADERS += \
     graph_algorithm/edge.h \
     graph_algorithm/graph.h \
     graph_algorithm/template_data/t_data.h \
-    mainwindow.h
+    mainwindow.h \
+    transfer_to_matrix.hpp
 
 FORMS += \
     mainwindow.ui

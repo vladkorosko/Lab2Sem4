@@ -29,6 +29,7 @@ public:
         end_v = false;
     }
 
+
     void First_absolute() {
 
         node = { matrix.get_length(0,0),matrix.get_vertex_num(0,0) };
@@ -112,63 +113,11 @@ public:
     pair<int,int> get_ver_num(){
          return node.second;
     }
-
     void Set(vector<vector<pair<T,pair<int,int>>>> m) {
         matrix.set(m);
     }
 
-    void Set(vector<Edge<T>> ed){
 
-        int n=ed.size();
-
-        t_data<T>* td = new t_data<T>;
-        T null = td->T_NULL();
-        delete td;
-        vector<pair<T,pair<int,int>>> a(n,{null,{0,0}});
-
-         vector<vector<pair<T,pair<int,int>>>> mt(n,a);
-        for(int i=0;i<n;i++){
-            if(ed.GetWight()!=null){
-          mt[ed.GetStart()-1][ed.GetFinish()-1].first=ed.GetWight();
-          mt[ed.GetFinish()-1][ed.GetStart()-1].first=ed.GetWight();
-          mt[ed.GetFinish()-1][ed.GetStart()-1].second={ed.GetStart(),ed.GetFinish()};
-          mt[ed.GetStart()-1][ed.GetFinish()-1].second={ed.GetStart(),ed.GetFinish()};  }
-        }
-
-        int j=0;
-        while(j<mt.size()){
-
-            if(mt.size()==a){
-             for(int i=j;i<mt.size()-1;i++)
-                mt[i]=mt[i+1];
-              mt.pop_back();
-
-            }
-             else ++j;
-        }
-
-        int i=0;
-
-        while(i<mt[0].size()){
-            bool t=false;
-           for(int k=0;k<mt.size();k++){
-               if(mt[i][k]!=null){
-                   t=true;
-                   break;
-               }
-           }
-           if(!t){
-              for(int j=0;j<mt.size();j++){
-                  for(int k=i;k<mt[j].size()-1;k++)
-                      mt[k][j]=mt[k+1][j];
-                  mt[j].pop_back();
-              }
-           }
-           else ++i;
-        }
-
-        matrix.set(mt);
-    }
 };
 
 
@@ -181,6 +130,7 @@ public:
     matrix_of_graph(vector<vector<pair<T,pair<int,int>>>> a) {
         mtrx = a;
     }
+
 
     matrix_of_graph() {
         mtrx = { {} };
@@ -201,9 +151,10 @@ public:
         return mtrx.size();
     }
 
-    void set(vector<vector<pair<T,int>>> m) {
+    void set(vector<vector<pair<T,pair<int,int>>>> m) {
         mtrx = m;
     }
+
 
 private:
     vector<vector<pair<T,pair<int,int>>>> mtrx;
@@ -331,7 +282,7 @@ vector<Edge<T>> algorithm_Kruscall(Graph_Node_Iterator<T, matrix_of_graph<T>>& G
             arb[nB][nA] = min;
 
             Edge<T> a(A,B,min);
-            cout<<A<<" "<<B<<" "<<min<<endl;
+
 
             kist_graph.push_back(a);}
 
