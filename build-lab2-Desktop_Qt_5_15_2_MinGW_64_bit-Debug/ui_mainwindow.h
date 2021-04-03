@@ -47,6 +47,7 @@ public:
     QLineEdit *EnterWeightDouble;
     QLineEdit *EnterWeightString;
     QTableWidget *TableGraph;
+    QPushButton *ShowGraphButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -114,6 +115,9 @@ public:
         TableGraph = new QTableWidget(centralwidget);
         TableGraph->setObjectName(QString::fromUtf8("TableGraph"));
         TableGraph->setGeometry(QRect(550, 40, 551, 481));
+        ShowGraphButton = new QPushButton(centralwidget);
+        ShowGraphButton->setObjectName(QString::fromUtf8("ShowGraphButton"));
+        ShowGraphButton->setGeometry(QRect(80, 440, 93, 28));
         MainWindow->setCentralWidget(centralwidget);
         BackButton->raise();
         IntegerButton->raise();
@@ -134,6 +138,7 @@ public:
         EnterWeightDouble->raise();
         EnterWeightString->raise();
         TableGraph->raise();
+        ShowGraphButton->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1230, 26));
@@ -155,14 +160,15 @@ public:
         StringButton->setText(QCoreApplication::translate("MainWindow", "String Graph", nullptr));
         ExitButton->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         BackButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
-        labelStartPoint->setText(QCoreApplication::translate("MainWindow", "Enter start point [0-999](integer)", nullptr));
-        labelFinishPoint->setText(QCoreApplication::translate("MainWindow", "Enter finish point [0-999](integer)", nullptr));
+        labelStartPoint->setText(QCoreApplication::translate("MainWindow", "Enter start point [1-12](integer)", nullptr));
+        labelFinishPoint->setText(QCoreApplication::translate("MainWindow", "Enter finish point [1-12](integer)", nullptr));
         labelWeightInt->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](integer)", nullptr));
         labelWeightFloat->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](float)", nullptr));
         labelWeightString->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-ZZZZZ](text)", nullptr));
         ButtonAddEdge->setText(QCoreApplication::translate("MainWindow", "Add Edge", nullptr));
         labelError->setText(QCoreApplication::translate("MainWindow", "Errors messages", nullptr));
         EnterWeightString->setText(QString());
+        ShowGraphButton->setText(QCoreApplication::translate("MainWindow", "Show Graph", nullptr));
     } // retranslateUi
 
 };

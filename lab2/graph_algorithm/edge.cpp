@@ -36,8 +36,15 @@ QString FloatPartOfNumber(const QString& d)
 
 bool IsDouble(const QString& d)
 {
-    return (IntegerPartOfNumber(d).size() != 0
-            && IsInteger(FloatPartOfNumber(d)) && IsInteger(IntegerPartOfNumber(d)));
+    QString aft_p = FloatPartOfNumber(d);
+    QString bef_p = IntegerPartOfNumber(d);
+    if (bef_p.size()==0)
+        return false;
+    if(!IsInteger(bef_p))
+        return false;
+    if (aft_p.size() == 0)
+        return bef_p.size() == d.size();
+    return IsInteger(aft_p);
 }
 
 bool BiggerQString(const QString& lhs, const QString& rhs)
@@ -49,8 +56,12 @@ bool BiggerQString(const QString& lhs, const QString& rhs)
     if (rhs.size() > lhs.size())
         return false;
     for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+    {
         if(lhs[i]<rhs[i])
             return false;
+        if(lhs[i]>rhs[i])
+            return true;
+    }
     if (*lhs.rbegin() == *rhs.rbegin())
         return false;
     return true;
@@ -65,8 +76,12 @@ bool BiggerQString(const std::string& lhs, const std::string& rhs)
     if (rhs.size() > lhs.size())
         return false;
     for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+    {
         if(lhs[i]<rhs[i])
             return false;
+        if(lhs[i]>rhs[i])
+            return true;
+    }
     if (*lhs.rbegin() == *rhs.rbegin())
         return false;
     return true;
@@ -81,8 +96,12 @@ bool SmallerQString(const QString& lhs, const QString& rhs)
     if (rhs.size() > lhs.size())
         return true;
     for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+    {
         if(lhs[i]>rhs[i])
             return false;
+        if(lhs[i]<rhs[i])
+            return true;
+    }
     if (*lhs.rbegin() == *rhs.rbegin())
         return false;
     return true;
@@ -97,8 +116,12 @@ bool SmallerQString(const std::string& lhs, const std::string& rhs)
     if (rhs.size() > lhs.size())
         return true;
     for (int i = 0; i < static_cast<int>(lhs.size()); i++)
+    {
         if(lhs[i]>rhs[i])
             return false;
+        if(lhs[i]<rhs[i])
+            return true;
+    }
     if (*lhs.rbegin() == *rhs.rbegin())
         return false;
     return true;
@@ -108,8 +131,8 @@ void CheckEndsOfEdge(const QString& point, const QString& name)
 {
     if(!IsInteger(point))
         throw std::logic_error(name.toStdString() + " point is not an integer number: " + point.toStdString() + ". ");
-    if (point.size() > 3)
-        throw std::logic_error(name.toStdString() + " point is greater than largest possible value(999): " + point.toStdString()+ ". ");
+    if (BiggerQString(point, "12") || SmallerQString(point, "1") || point == "00")
+        throw std::logic_error(name.toStdString() + " point is greater than largest possible value(12): " + point.toStdString()+ ". ");
 }
 
 void CheckWeightInt(const QString& weight)

@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QTableWidgetItem>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsItem>
 #include "graph_algorithm/edge.h"
 
 QT_BEGIN_NAMESPACE
@@ -56,6 +59,8 @@ private slots:
     void on_EnterWeightInt_textEdited(const QString &arg1);
 
     void on_ButtonAddEdge_clicked();
+
+    void on_ShowGraphButton_clicked();
 
 private:
     Ui::MainWindow *ui;
