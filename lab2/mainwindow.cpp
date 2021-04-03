@@ -311,14 +311,14 @@ void MainWindow::on_ButtonAddEdge_clicked()
     {
         Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
-                                new QTableWidgetItem (ui->EnterWeightInt->text().toInt()));
+                                new QTableWidgetItem (ui->EnterWeightInt->text()));
         ui->EnterWeightInt->clear();
     }
     if (type == "double")
     {
         Edge<double> a = CreateEdgeDouble(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() -1), (ui->EnterFinishPoint->text().toInt() - 1),
-                                new QTableWidgetItem (ui->EnterWeightDouble->text().toDouble()));
+                                new QTableWidgetItem (ui->EnterWeightDouble->text()));
         ui->EnterWeightDouble->clear();
     }
     if (type == "string")
