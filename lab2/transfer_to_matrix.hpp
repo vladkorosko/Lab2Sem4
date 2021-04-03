@@ -20,7 +20,10 @@ vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
 
     for(int i=0;i<edges.size();i++){
         result[edges[i].GetStart()-1][edges[i].GetFinish()-1].first=edges[i].GetWeight();
+        result[edges[i].GetFinish()-1][edges[i].GetStart()-1].first=edges[i].GetWeight();
+        result[edges[i].GetFinish()-1][edges[i].GetStart()-1].second={edges[i].GetStart(),edges[i].GetFinish()};
         result[edges[i].GetStart()-1][edges[i].GetFinish()-1].second={edges[i].GetStart(),edges[i].GetFinish()};
+
     }
     int j=0;
     while(j<result.size()){
