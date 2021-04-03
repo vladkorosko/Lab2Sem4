@@ -310,6 +310,7 @@ void MainWindow::on_ButtonAddEdge_clicked()
     if (type == "int")
     {
         Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+        edge_int.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightInt->text()));
         ui->EnterWeightInt->clear();
@@ -317,6 +318,7 @@ void MainWindow::on_ButtonAddEdge_clicked()
     if (type == "double")
     {
         Edge<double> a = CreateEdgeDouble(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+          edge_double.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() -1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightDouble->text()));
         ui->EnterWeightDouble->clear();
@@ -324,6 +326,7 @@ void MainWindow::on_ButtonAddEdge_clicked()
     if (type == "string")
     {
         Edge<std::string> a = CreateEdgeString(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
+          edge_string.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightString->text()));
         ui->EnterWeightString->clear();

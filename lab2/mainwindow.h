@@ -7,7 +7,9 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include <vector>
 #include "graph_algorithm/edge.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +25,8 @@ public:
 
 private slots:
     bool DialogMessage(const std::string& quest, const std::string instruction);
+
+
 
     void ShowMenu();
 
@@ -71,5 +75,12 @@ private:
     QString finish_error;
     QString weight_error;
     QString type;
+
+   std::vector<Edge<int>> edge_int;
+
+   std::vector<Edge<double>> edge_double;
+
+   std::vector<Edge<std::string>> edge_string;
+
 };
 #endif // MAINWINDOW_H

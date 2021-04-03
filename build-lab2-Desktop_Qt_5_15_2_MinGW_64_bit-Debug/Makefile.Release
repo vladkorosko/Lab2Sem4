@@ -224,9 +224,44 @@ release/moc_mainwindow.cpp: ../lab2/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtableview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainterpath.h \
+		../lab2/graph_algorithm/edge.h \
+		../lab2/graph_algorithm/template_data/t_data.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		release/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
-	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/Vladyslav/Desktop/Code/Lab2Sem4/build-lab2-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/Vladyslav/Desktop/Code/Lab2Sem4/lab2 -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\lab2\mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include "G:/lb 2/build-lab2-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -I"G:/lb 2/lab2" -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\lab2\mainwindow.h -o release\moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -397,8 +432,42 @@ release/main.o: ../lab2/main.cpp ../lab2/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
-		../lab2/graph_algorithm/graph.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtableview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainterpath.h \
+		../lab2/graph_algorithm/edge.h \
 		../lab2/graph_algorithm/template_data/t_data.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
+		../lab2/graph_algorithm/graph.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -515,26 +584,42 @@ release/mainwindow.o: ../lab2/mainwindow.cpp ../lab2/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
-		ui_mainwindow.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtableview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainterpath.h \
+		../lab2/graph_algorithm/edge.h \
+		../lab2/graph_algorithm/template_data/t_data.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\lab2\mainwindow.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
