@@ -346,23 +346,36 @@ void MainWindow::on_ButtonAddEdge_clicked()
 void MainWindow::on_ShowGraphButton_clicked()
 {
    if(type == "int"){
-      //
-       for(int i =0 ;i<edge_int.size();i++)
-           cout<< edge_int[i].GetStart()<<" "<< edge_int[i].GetFinish()<<" "<< edge_int[i].GetWeight()<<endl;
+
+
       vector<vector<pair<int,pair<int,int>>>> err=transfer_to_matrix(edge_int);
-      for(int i=0;i<err.size();i++){
+
+      matrix_of_graph<int> gr(err);
+
+      Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
+
+      /*for(int i=0;i<err.size();i++){
            for(int j=0;j<err[i].size();j++)
                cout<<err[i][j].first<<" ";
            cout<<endl;
-      }
+      }*/
     }
     if(type == "double"){
+        vector<vector<pair<double,pair<int,int>>>> err=transfer_to_matrix(edge_double);
 
-       //   Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(edge_double);
+        matrix_of_graph<double> gr(err);
+
+        Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
+
+
     }
     if(type == "string"){
 
-        //  Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(edge_string);
+        vector<vector<pair<string,pair<int,int>>>> err=transfer_to_matrix(edge_string);
+
+        matrix_of_graph<string> gr(err);
+
+        Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(gr);
     }
 
 
