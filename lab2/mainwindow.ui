@@ -99,7 +99,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Enter start point [0-999](integer)</string>
+     <string>Enter start point [1-12](integer)</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelFinishPoint">
@@ -112,7 +112,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Enter finish point [0-999](integer)</string>
+     <string>Enter finish point [1-12](integer)</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="EnterFinishPoint">
@@ -243,6 +243,19 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="ShowGraphButton">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>440</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Graph</string>
+    </property>
+   </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
@@ -262,6 +275,7 @@
    <zorder>EnterWeightDouble</zorder>
    <zorder>EnterWeightString</zorder>
    <zorder>TableGraph</zorder>
+   <zorder>ShowGraphButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

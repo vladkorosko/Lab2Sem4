@@ -22,11 +22,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ErrorText->setReadOnly(true);
     ui->labelError->hide();
     ui->ErrorText->setTextColor(Qt::red);
-    ui->TableGraph->setRowCount(10);
-    ui->TableGraph->setColumnCount(10);
+    ui->TableGraph->setRowCount(12);
+    ui->TableGraph->setColumnCount(12);
     ui->TableGraph->verticalHeader()->setDefaultSectionSize(40);
     ui->TableGraph->horizontalHeader()->setDefaultSectionSize(40);
     ui->TableGraph->hide();
+    ui->ShowGraphButton->hide();
 }
 
 MainWindow::~MainWindow()
@@ -71,6 +72,7 @@ void MainWindow::ShowLineEdit()
     ui->ErrorText->show();
     ui->labelError->show();
     ui->TableGraph->show();
+    ui->ShowGraphButton->show();
 }
 
 void MainWindow::HideLineEdit()
@@ -102,6 +104,7 @@ void MainWindow::HideLineEdit()
     ui->EnterWeightString->hide();
     ui->ButtonAddEdge->hide();
     ui->TableGraph->clear();
+    ui->ShowGraphButton->hide();
 }
 
 void MainWindow::ShowAddEdge()
@@ -307,25 +310,85 @@ void MainWindow::on_ButtonAddEdge_clicked()
     if (type == "int")
     {
         Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
-        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt()), (ui->EnterFinishPoint->text().toInt()),
-                                new QTableWidgetItem (ui->EnterWeightInt->text()));
+        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
+                                new QTableWidgetItem (ui->EnterWeightInt->text().toInt()));
         ui->EnterWeightInt->clear();
     }
     if (type == "double")
     {
         Edge<double> a = CreateEdgeDouble(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
-        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt()), (ui->EnterFinishPoint->text().toInt()),
-                                new QTableWidgetItem (ui->EnterWeightDouble->text()));
+        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() -1), (ui->EnterFinishPoint->text().toInt() - 1),
+                                new QTableWidgetItem (ui->EnterWeightDouble->text().toDouble()));
         ui->EnterWeightDouble->clear();
     }
     if (type == "string")
     {
         Edge<std::string> a = CreateEdgeString(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
-        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt()), (ui->EnterFinishPoint->text().toInt()),
+        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightString->text()));
         ui->EnterWeightString->clear();
     }
+
+
     ui->EnterStartPoint->clear();
     ui->EnterFinishPoint->clear();
     ui->ButtonAddEdge->hide();
+}
+
+void MainWindow::on_ShowGraphButton_clicked()
+{
+    QGraphicsScene* Q = new QGraphicsScene();
+    Q->setSceneRect(-500,-500,1000,1000);
+    QGraphicsEllipseItem* rect1= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect2= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect3= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect4= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect5= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect6= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect7= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect8= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect9= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect10= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect11= new QGraphicsEllipseItem();
+    QGraphicsEllipseItem* rect12= new QGraphicsEllipseItem();
+    rect1->setBrush(Qt::blue);
+    rect2->setBrush(Qt::blue);
+    rect3->setBrush(Qt::blue);
+    rect4->setBrush(Qt::blue);
+    rect5->setBrush(Qt::blue);
+    rect6->setBrush(Qt::blue);
+    rect7->setBrush(Qt::blue);
+    rect8->setBrush(Qt::blue);
+    rect9->setBrush(Qt::blue);
+    rect10->setBrush(Qt::blue);
+    rect11->setBrush(Qt::blue);
+    rect12->setBrush(Qt::blue);
+    rect1->setRect(400, 100,50,50);
+    Q->addItem(rect1);
+    rect2->setRect(400, -100,50,50);
+    Q->addItem(rect2);
+    rect3->setRect(-400, -100,50,50);
+    Q->addItem(rect3);
+    rect4->setRect(-400, 100,50,50);
+    Q->addItem(rect4);
+    rect5->setRect(100, 400,50,50);
+    Q->addItem(rect5);
+    rect6->setRect(100, -400,50,50);
+    Q->addItem(rect6);
+    rect7->setRect(-100, -400,50,50);
+    Q->addItem(rect7);
+    rect8->setRect(-100, 400,50,50);
+    Q->addItem(rect8);
+    rect9->setRect(300, 300,50,50);
+    Q->addItem(rect9);
+    rect10->setRect(-300, 300,50,50);
+    Q->addItem(rect10);
+    rect11->setRect(-300, -300,50,50);
+    Q->addItem(rect11);
+    rect12->setRect(300, -300,50,50);
+    Q->addItem(rect12);
+    QGraphicsView *view = new QGraphicsView(Q);
+    view->setRenderHints(QPainter::Antialiasing);
+    view->setWindowTitle("Tutorial app");
+    view->show();
 }
