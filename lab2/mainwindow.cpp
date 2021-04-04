@@ -352,13 +352,18 @@ void MainWindow::on_ShowGraphButton_clicked()
 
       matrix_of_graph<int> gr(err);
 
-      Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
+     Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
+
+      vector<Edge<int>> ed_int= algorithm_Kruscall(Graph);
 
       /*for(int i=0;i<err.size();i++){
            for(int j=0;j<err[i].size();j++)
                cout<<err[i][j].first<<" ";
            cout<<endl;
       }*/
+
+      for(int i=0;i<ed_int.size();i++)
+          cout<<ed_int[i].GetStart()<<" "<<ed_int[i].GetFinish()<<" "<<ed_int[i].GetWeight()<<endl;
     }
     if(type == "double"){
         vector<vector<pair<double,pair<int,int>>>> err=transfer_to_matrix(edge_double);
