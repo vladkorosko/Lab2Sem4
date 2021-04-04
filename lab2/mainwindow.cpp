@@ -3,6 +3,10 @@
 #include "graph_algorithm/graph.h"
 #include "transfer_to_matrix.hpp"
 #include <QMessageBox>
+#include <QGraphicsDropShadowEffect>
+
+#include <thread>
+#include <chrono>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -118,7 +122,7 @@ void MainWindow::ShowAddEdge()
     else ui->ButtonAddEdge->hide();
 }
 
-void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int)
+void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<Edge<int>>& ed_int)
 {
     std::map<int, int> vertices;
     std::map<int, std::pair<int,int>> pos_vertices;
@@ -153,11 +157,14 @@ void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int)
             Q->addItem(rect);
             Q->addItem(text);
         }
+
+    vector<pair<QGraphicsLineItem*,pair<int,int>>> arr;
     for (auto i : edge_int)
     {
         QGraphicsLineItem* l = new QGraphicsLineItem();
         l->setLine(pos_vertices[i.GetStart()].first+25, pos_vertices[i.GetStart()].second+25,
                 pos_vertices[i.GetFinish()].first+25, pos_vertices[i.GetFinish()].second+25);
+        arr.push_back({l,{i.GetStart(),i.GetFinish()}});
         QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i.GetWeight()));
         text->setPos((pos_vertices[i.GetStart()].first + pos_vertices[i.GetFinish()].first)/2 +25,
                 (pos_vertices[i.GetStart()].second + pos_vertices[i.GetFinish()].second)/2 + 25);
@@ -165,13 +172,42 @@ void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int)
         Q->addItem(l);
         Q->addItem(text);
     }
+
     QGraphicsView *view = new QGraphicsView(Q);
     view->setRenderHints(QPainter::Antialiasing);
     view->setWindowTitle("Graph View");
     view->show();
+
+    auto *effect = new QGraphicsDropShadowEffect(nullptr);
+
+    effect->setColor(Qt::blue);
+    effect->setOffset(0);
+    effect->setBlurRadius(5);
+
+    for(auto i : ed_int){
+     //this_thread::sleep_for(chrono::milliseconds(3000));
+
+
+
+        for(int j=0;j<arr.size();j++){
+            if(arr[j].second.first==i.GetStart() && arr[j].second.second==i.GetFinish()){
+                arr[j].first->setPen(QPen(Qt::green, 5));
+                arr[j].first->setGraphicsEffect(effect);
+
+                long long k=0;
+              /* while(k<500000000)
+                        k++;*/
+                view->repaint();
+                break;
+            }
+        }
+
+    }
+
+
 }
 
-void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int)
+void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::vector<Edge<double>>& ed_int)
 {
     std::map<int, int> vertices;
     std::map<int, std::pair<int,int>> pos_vertices;
@@ -206,22 +242,64 @@ void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int)
             Q->addItem(rect);
             Q->addItem(text);
         }
+
+    vector<pair<QGraphicsLineItem*,pair<int,int>>> arr;
+
     for (auto i : edge_int)
     {
         QGraphicsLineItem* l = new QGraphicsLineItem();
-        l->setLine(pos_vertices[i.GetStart()].first+25, pos_vertices[i.GetStart()].second+25,
+        l->setLine(pos_vertices[i.GetStart()].first+25, pos_vertices[i.GetStart()].second+35,
                 pos_vertices[i.GetFinish()].first+25, pos_vertices[i.GetFinish()].second+25);
+
+        arr.push_back({l,{i.GetStart(),i.GetFinish()}});
+
         QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i.GetWeight()));
+
         text->setPos((pos_vertices[i.GetStart()].first + pos_vertices[i.GetFinish()].first)/2+25,
                 (pos_vertices[i.GetStart()].second + pos_vertices[i.GetFinish()].second)/2+25);
         text->setDefaultTextColor(Qt::blue);
         Q->addItem(l);
         Q->addItem(text);
+
     }
+
+
+
     QGraphicsView *view = new QGraphicsView(Q);
     view->setRenderHints(QPainter::Antialiasing);
     view->setWindowTitle("Graph View");
     view->show();
+
+
+
+       auto *effect = new QGraphicsDropShadowEffect(nullptr);
+
+       effect->setColor(Qt::blue);
+       effect->setOffset(0);
+       effect->setBlurRadius(5);
+
+       for(auto i : ed_int){
+        //this_thread::sleep_for(chrono::milliseconds(3000));
+
+
+           for(int j=0;j<arr.size();j++){
+               if(arr[j].second.first==i.GetStart() && arr[j].second.second==i.GetFinish()){
+                   arr[j].first->setPen(QPen(Qt::green, 5));
+                   arr[j].first->setGraphicsEffect(effect);
+
+                   long long k=0;
+                   while(k<500000000)
+                           k++;
+                   view->repaint();
+                   break;
+               }
+           }
+
+       }
+
+
+
+
 }
 
 void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int)
@@ -259,11 +337,14 @@ void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int)
             Q->addItem(rect);
             Q->addItem(text);
         }
+
+     vector<pair<QGraphicsLineItem*,pair<int,int>>> arr;
     for (int i = 0; i<static_cast<int>(edge_int.size()); i++)
     {
         QGraphicsLineItem* l = new QGraphicsLineItem();
         l->setLine(pos_vertices[edge_int[i].GetStart()].first+25, pos_vertices[edge_int[i].GetStart()].second+25,
                 pos_vertices[edge_int[i].GetFinish()].first+25, pos_vertices[edge_int[i].GetFinish()].second+25);
+
         QGraphicsTextItem* text = new QGraphicsTextItem(QString::fromStdString(edge_int[i].GetWeight()));
         text->setPos((pos_vertices[edge_int[i].GetStart()].first + pos_vertices[edge_int[i].GetFinish()].first)/2+25,
                 (pos_vertices[edge_int[i].GetStart()].second + pos_vertices[edge_int[i].GetFinish()].second)/2+25);
@@ -275,6 +356,15 @@ void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int)
     view->setRenderHints(QPainter::Antialiasing);
     view->setWindowTitle("Graph View");
     view->show();
+
+
+    auto *effect = new QGraphicsDropShadowEffect(nullptr);
+
+    effect->setColor(Qt::blue);
+    effect->setOffset(0);
+    effect->setBlurRadius(5);
+
+
 }
 
 void MainWindow::ShowErrors()
@@ -490,25 +580,27 @@ void MainWindow::on_ShowGraphButton_clicked()
 {
    if(type == "int")
    {
-       ShowGraphEdgesInt(edge_int);
+
        std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int);
        matrix_of_graph<int> gr(err);
        Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
-       if(connected_graph(Graph))
-           edge_int= algorithm_Kruscall(Graph);
+       if(connected_graph(Graph)){
+          auto ed_int= algorithm_Kruscall(Graph);
+        ShowGraphEdgesInt(edge_int,ed_int);}
        else
-           QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
+           QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
     if(type == "double")
     {
-        ShowGraphEdgesDouble(edge_double);
+
         std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double);
         matrix_of_graph<double> gr(err);
         Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
-        if(connected_graph(Graph))
-            edge_double= algorithm_Kruscall(Graph);
+        if(connected_graph(Graph)){
+       auto  ed_double= algorithm_Kruscall(Graph);
+        ShowGraphEdgesDouble(edge_double,ed_double);}
         else
-            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
+            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
 
     }
     if(type == "string")
@@ -520,7 +612,7 @@ void MainWindow::on_ShowGraphButton_clicked()
         if(connected_graph(Graph))
            edge_string= algorithm_Kruscall(Graph);
         else
-            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
+            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
 
 }
