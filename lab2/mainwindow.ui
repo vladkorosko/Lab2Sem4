@@ -99,7 +99,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Enter start point [1-12](integer)</string>
+     <string>Enter start vertice [1-12](integer)</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelFinishPoint">
@@ -112,7 +112,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Enter finish point [1-12](integer)</string>
+     <string>Enter finish vertice [1-12](integer)</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="EnterFinishPoint">

@@ -118,6 +118,165 @@ void MainWindow::ShowAddEdge()
     else ui->ButtonAddEdge->hide();
 }
 
+void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int)
+{
+    std::map<int, int> vertices;
+    std::map<int, std::pair<int,int>> pos_vertices;
+    pos_vertices[1] = std::make_pair(100, -400);
+    pos_vertices[2] = std::make_pair(300, -300);
+    pos_vertices[3] = std::make_pair(400, -100);
+    pos_vertices[4] = std::make_pair(400, 100);
+    pos_vertices[5] = std::make_pair(300, 300);
+    pos_vertices[6] = std::make_pair(100, 400);
+    pos_vertices[12] = std::make_pair(-100, -400);
+    pos_vertices[11] = std::make_pair(-300, -300);
+    pos_vertices[10] = std::make_pair(-400, -100);
+    pos_vertices[9] = std::make_pair(-400, 100);
+    pos_vertices[8] = std::make_pair(-300, 300);
+    pos_vertices[7] = std::make_pair(-100, 400);
+    for (auto i = edge_int.begin(); i != edge_int.end(); i++)
+    {
+        vertices[i->GetStart()] = 1;
+        vertices[i->GetFinish()] = 1;
+    }
+    QGraphicsScene* Q = new QGraphicsScene();
+    Q->setSceneRect(-500,-500,1000,1000);
+    for (int i = 1; i < 13; i++)
+        if (vertices[i])
+        {
+            QGraphicsEllipseItem* rect= new QGraphicsEllipseItem();
+            rect->setBrush(Qt::blue);
+            QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i));
+            text->setPos(pos_vertices[i].first +20, pos_vertices[i].second+10);
+            text->setDefaultTextColor(Qt::yellow);
+            rect->setRect(pos_vertices[i].first, pos_vertices[i].second,50,50);
+            Q->addItem(rect);
+            Q->addItem(text);
+        }
+    for (auto i : edge_int)
+    {
+        QGraphicsLineItem* l = new QGraphicsLineItem();
+        l->setLine(pos_vertices[i.GetStart()].first+25, pos_vertices[i.GetStart()].second+25,
+                pos_vertices[i.GetFinish()].first+25, pos_vertices[i.GetFinish()].second+25);
+        QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i.GetWeight()));
+        text->setPos((pos_vertices[i.GetStart()].first + pos_vertices[i.GetFinish()].first)/2 +25,
+                (pos_vertices[i.GetStart()].second + pos_vertices[i.GetFinish()].second)/2 + 25);
+        text->setDefaultTextColor(Qt::blue);
+        Q->addItem(l);
+        Q->addItem(text);
+    }
+    QGraphicsView *view = new QGraphicsView(Q);
+    view->setRenderHints(QPainter::Antialiasing);
+    view->setWindowTitle("Graph View");
+    view->show();
+}
+
+void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int)
+{
+    std::map<int, int> vertices;
+    std::map<int, std::pair<int,int>> pos_vertices;
+    pos_vertices[1] = std::make_pair(100, -400);
+    pos_vertices[2] = std::make_pair(300, -300);
+    pos_vertices[3] = std::make_pair(400, -100);
+    pos_vertices[4] = std::make_pair(400, 100);
+    pos_vertices[5] = std::make_pair(300, 300);
+    pos_vertices[6] = std::make_pair(100, 400);
+    pos_vertices[12] = std::make_pair(-100, -400);
+    pos_vertices[11] = std::make_pair(-300, -300);
+    pos_vertices[10] = std::make_pair(-400, -100);
+    pos_vertices[9] = std::make_pair(-400, 100);
+    pos_vertices[8] = std::make_pair(-300, 300);
+    pos_vertices[7] = std::make_pair(-100, 400);
+    for (auto i = edge_int.begin(); i != edge_int.end(); i++)
+    {
+        vertices[i->GetStart()] = 1;
+        vertices[i->GetFinish()] = 1;
+    }
+    QGraphicsScene* Q = new QGraphicsScene();
+    Q->setSceneRect(-500,-500,1000,1000);
+    for (int i = 1; i < 13; i++)
+        if (vertices[i])
+        {
+            QGraphicsEllipseItem* rect= new QGraphicsEllipseItem();
+            rect->setBrush(Qt::blue);
+            QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i));
+            text->setPos(pos_vertices[i].first +20, pos_vertices[i].second+10);
+            text->setDefaultTextColor(Qt::yellow);
+            rect->setRect(pos_vertices[i].first, pos_vertices[i].second,50,50);
+            Q->addItem(rect);
+            Q->addItem(text);
+        }
+    for (auto i : edge_int)
+    {
+        QGraphicsLineItem* l = new QGraphicsLineItem();
+        l->setLine(pos_vertices[i.GetStart()].first+25, pos_vertices[i.GetStart()].second+25,
+                pos_vertices[i.GetFinish()].first+25, pos_vertices[i.GetFinish()].second+25);
+        QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i.GetWeight()));
+        text->setPos((pos_vertices[i.GetStart()].first + pos_vertices[i.GetFinish()].first)/2+25,
+                (pos_vertices[i.GetStart()].second + pos_vertices[i.GetFinish()].second)/2+25);
+        text->setDefaultTextColor(Qt::blue);
+        Q->addItem(l);
+        Q->addItem(text);
+    }
+    QGraphicsView *view = new QGraphicsView(Q);
+    view->setRenderHints(QPainter::Antialiasing);
+    view->setWindowTitle("Graph View");
+    view->show();
+}
+
+void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int)
+{
+    std::map<int, int> vertices;
+    std::map<int, std::pair<int,int>> pos_vertices;
+    pos_vertices[1] = std::make_pair(100, -400);
+    pos_vertices[2] = std::make_pair(300, -300);
+    pos_vertices[3] = std::make_pair(400, -100);
+    pos_vertices[4] = std::make_pair(400, 100);
+    pos_vertices[5] = std::make_pair(300, 300);
+    pos_vertices[6] = std::make_pair(100, 400);
+    pos_vertices[12] = std::make_pair(-100, -400);
+    pos_vertices[11] = std::make_pair(-300, -300);
+    pos_vertices[10] = std::make_pair(-400, -100);
+    pos_vertices[9] = std::make_pair(-400, 100);
+    pos_vertices[8] = std::make_pair(-300, 300);
+    pos_vertices[7] = std::make_pair(-100, 400);
+    for (auto i = edge_int.begin(); i != edge_int.end(); i++)
+    {
+        vertices[i->GetStart()] = 1;
+        vertices[i->GetFinish()] = 1;
+    }
+    QGraphicsScene* Q = new QGraphicsScene();
+    Q->setSceneRect(-500,-500,1000,1000);
+    for (int i = 1; i < 13; i++)
+        if (vertices[i])
+        {
+            QGraphicsEllipseItem* rect= new QGraphicsEllipseItem();
+            rect->setBrush(Qt::blue);
+            QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i));
+            text->setPos(pos_vertices[i].first +20, pos_vertices[i].second+10);
+            text->setDefaultTextColor(Qt::yellow);
+            rect->setRect(pos_vertices[i].first, pos_vertices[i].second,50,50);
+            Q->addItem(rect);
+            Q->addItem(text);
+        }
+    for (int i = 0; i<static_cast<int>(edge_int.size()); i++)
+    {
+        QGraphicsLineItem* l = new QGraphicsLineItem();
+        l->setLine(pos_vertices[edge_int[i].GetStart()].first+25, pos_vertices[edge_int[i].GetStart()].second+25,
+                pos_vertices[edge_int[i].GetFinish()].first+25, pos_vertices[edge_int[i].GetFinish()].second+25);
+        QGraphicsTextItem* text = new QGraphicsTextItem(QString::fromStdString(edge_int[i].GetWeight()));
+        text->setPos((pos_vertices[edge_int[i].GetStart()].first + pos_vertices[edge_int[i].GetFinish()].first)/2+25,
+                (pos_vertices[edge_int[i].GetStart()].second + pos_vertices[edge_int[i].GetFinish()].second)/2+25);
+        text->setDefaultTextColor(Qt::blue);
+        Q->addItem(l);
+        Q->addItem(text);
+    }
+    QGraphicsView *view = new QGraphicsView(Q);
+    view->setRenderHints(QPainter::Antialiasing);
+    view->setWindowTitle("Graph View");
+    view->show();
+}
+
 void MainWindow::ShowErrors()
 {
     QString res = start_error + finish_error + weight_error;
@@ -150,29 +309,6 @@ void MainWindow::on_StringButton_clicked()
     ui->EnterWeightString->show();
     type = "string";
 }
-/*
-void MainWindow::Read(QString& value, QString& error, bool& is_ok, void (*f)(const QString&, const QString&), const QString &arg1)
-{
-    value = arg1;
-    try{
-        f(arg1, "Start");
-        ui->EnterStartPoint->setStyleSheet("color: green");
-        ui->ErrorText->clear();
-        is_ok = true;
-        error="";
-    } catch (const std::logic_error& e) {
-        ui->EnterStartPoint->setStyleSheet("color: red");
-        error = e.what();
-        is_ok = false;
-    }
-    if(arg1.size()==0)
-    {
-        is_ok=false;
-        ui->EnterWeightString->setStyleSheet("color: red");
-        error = "Field is empty.";
-    }
-    ShowAddEdge();
-}*/
 
 void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
 {
@@ -310,8 +446,6 @@ void MainWindow::on_ExitButton_clicked()
         qApp->exit();
 }
 
-
-
 void MainWindow::on_ButtonAddEdge_clicked()
 {
     if (type == "int")
@@ -321,7 +455,8 @@ void MainWindow::on_ButtonAddEdge_clicked()
         edge_int.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightInt->text()));
-
+        ui->TableGraph->setItem((ui->EnterFinishPoint->text().toInt() - 1), (ui->EnterStartPoint->text().toInt() - 1),
+                                new QTableWidgetItem (ui->EnterWeightInt->text()));
         ui->EnterWeightInt->clear();
     }
     if (type == "double")
@@ -330,6 +465,8 @@ void MainWindow::on_ButtonAddEdge_clicked()
           edge_double.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() -1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightDouble->text()));
+        ui->TableGraph->setItem((ui->EnterFinishPoint->text().toInt() - 1), (ui->EnterStartPoint->text().toInt() -1),
+                                new QTableWidgetItem (ui->EnterWeightDouble->text()));
         ui->EnterWeightDouble->clear();
     }
     if (type == "string")
@@ -337,6 +474,8 @@ void MainWindow::on_ButtonAddEdge_clicked()
         Edge<std::string> a = CreateEdgeString(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
           edge_string.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
+                                new QTableWidgetItem (ui->EnterWeightString->text()));
+        ui->TableGraph->setItem((ui->EnterFinishPoint->text().toInt() - 1), (ui->EnterStartPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightString->text()));
         ui->EnterWeightString->clear();
     }
@@ -351,99 +490,37 @@ void MainWindow::on_ShowGraphButton_clicked()
 {
    if(type == "int")
    {
+       ShowGraphEdgesInt(edge_int);
        std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int);
        matrix_of_graph<int> gr(err);
        Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
        if(connected_graph(Graph))
-        edge_int= algorithm_Kruscall(Graph);
-       else {
-         QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
-       }
-
-
-
-   //   for(int i=0;i < static_cast<int>(ed_int.size());i++)
-     //     std::cout<<edge_int[i].GetStart()<<" "<<ed_int[i].GetFinish()<<" "<<ed_int[i].GetWeight()<<std::endl;
+           edge_int= algorithm_Kruscall(Graph);
+       else
+           QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
-    if(type == "double"){
+    if(type == "double")
+    {
+        ShowGraphEdgesDouble(edge_double);
         std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double);
         matrix_of_graph<double> gr(err);
         Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
-        if(connected_graph(Graph)){
-         edge_double= algorithm_Kruscall(Graph);
-          }
-        else {
-         QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
-        }
+        if(connected_graph(Graph))
+            edge_double= algorithm_Kruscall(Graph);
+        else
+            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
 
     }
     if(type == "string")
     {
+        ShowGraphEdgesString(edge_string);
         std::vector<std::vector<std::pair<string,std::pair<int,int>>>> err=transfer_to_matrix(edge_string);
         matrix_of_graph<string> gr(err);
         Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(gr);
         if(connected_graph(Graph))
            edge_string= algorithm_Kruscall(Graph);
-        else {
-        QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
-        }
+        else
+            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
 
-
-
-
-    QGraphicsScene* Q = new QGraphicsScene();
-    Q->setSceneRect(-500,-500,1000,1000);
-    QGraphicsEllipseItem* rect1= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect2= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect3= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect4= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect5= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect6= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect7= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect8= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect9= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect10= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect11= new QGraphicsEllipseItem();
-    QGraphicsEllipseItem* rect12= new QGraphicsEllipseItem();
-    rect1->setBrush(Qt::blue);
-    rect2->setBrush(Qt::blue);
-    rect3->setBrush(Qt::blue);
-    rect4->setBrush(Qt::blue);
-    rect5->setBrush(Qt::blue);
-    rect6->setBrush(Qt::blue);
-    rect7->setBrush(Qt::blue);
-    rect8->setBrush(Qt::blue);
-    rect9->setBrush(Qt::blue);
-    rect10->setBrush(Qt::blue);
-    rect11->setBrush(Qt::blue);
-    rect12->setBrush(Qt::blue);
-    rect1->setRect(400, 100,50,50);
-    Q->addItem(rect1);
-    rect2->setRect(400, -100,50,50);
-    Q->addItem(rect2);
-    rect3->setRect(-400, -100,50,50);
-    Q->addItem(rect3);
-    rect4->setRect(-400, 100,50,50);
-    Q->addItem(rect4);
-    rect5->setRect(100, 400,50,50);
-    Q->addItem(rect5);
-    rect6->setRect(100, -400,50,50);
-    Q->addItem(rect6);
-    rect7->setRect(-100, -400,50,50);
-    Q->addItem(rect7);
-    rect8->setRect(-100, 400,50,50);
-    Q->addItem(rect8);
-    rect9->setRect(300, 300,50,50);
-    Q->addItem(rect9);
-    rect10->setRect(-300, 300,50,50);
-    Q->addItem(rect10);
-    rect11->setRect(-300, -300,50,50);
-    Q->addItem(rect11);
-    rect12->setRect(300, -300,50,50);
-    Q->addItem(rect12);
-    QGraphicsView *view = new QGraphicsView(Q);
-    view->setRenderHints(QPainter::Antialiasing);
-    view->setWindowTitle("Tutorial app");
-    view->show();
 }

@@ -8,6 +8,7 @@
 #include <QGraphicsView>
 #include <QGraphicsItem>
 #include <vector>
+#include <map>
 #include "graph_algorithm/edge.h"
 
 
@@ -26,8 +27,6 @@ public:
 private slots:
     bool DialogMessage(const std::string& quest, const std::string instruction);
 
-
-
     void ShowMenu();
 
     void HideMenu();
@@ -39,8 +38,6 @@ private slots:
     void ShowAddEdge();
 
     void ShowErrors();
-
-    //void Read(QString& value, QString& error, bool& is_ok, void (*f)(const QString&, const QString&), const QString &arg1);
 
     void on_IntegerButton_clicked();
 

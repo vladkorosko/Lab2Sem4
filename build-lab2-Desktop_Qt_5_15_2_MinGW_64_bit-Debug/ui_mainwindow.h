@@ -160,8 +160,8 @@ public:
         StringButton->setText(QCoreApplication::translate("MainWindow", "String Graph", nullptr));
         ExitButton->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         BackButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
-        labelStartPoint->setText(QCoreApplication::translate("MainWindow", "Enter start point [1-12](integer)", nullptr));
-        labelFinishPoint->setText(QCoreApplication::translate("MainWindow", "Enter finish point [1-12](integer)", nullptr));
+        labelStartPoint->setText(QCoreApplication::translate("MainWindow", "Enter start vertice [1-12](integer)", nullptr));
+        labelFinishPoint->setText(QCoreApplication::translate("MainWindow", "Enter finish vertice [1-12](integer)", nullptr));
         labelWeightInt->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](integer)", nullptr));
         labelWeightFloat->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-999](float)", nullptr));
         labelWeightString->setText(QCoreApplication::translate("MainWindow", "Enter weight of edge[0-ZZZZZ](text)", nullptr));
