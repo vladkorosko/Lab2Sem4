@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "graph_algorithm/graph.h"
 #include "transfer_to_matrix.hpp"
+#include <QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -356,7 +357,7 @@ void MainWindow::on_ShowGraphButton_clicked()
        if(connected_graph(Graph))
         edge_int= algorithm_Kruscall(Graph);
        else {
-          cout<<"f";
+         QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
        }
 
 
@@ -372,7 +373,7 @@ void MainWindow::on_ShowGraphButton_clicked()
          edge_double= algorithm_Kruscall(Graph);
           }
         else {
-        cout<<"f";
+         QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
         }
 
     }
@@ -384,7 +385,7 @@ void MainWindow::on_ShowGraphButton_clicked()
         if(connected_graph(Graph))
            edge_string= algorithm_Kruscall(Graph);
         else {
-            //
+        QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \n добавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
         }
     }
 
