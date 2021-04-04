@@ -298,6 +298,9 @@ void MainWindow::on_BackButton_clicked()
 {
     ShowMenu();
     HideLineEdit();
+    edge_int.clear();
+    edge_double.clear();
+    edge_string.clear();
 }
 
 void MainWindow::on_ExitButton_clicked()
@@ -314,7 +317,7 @@ void MainWindow::on_ButtonAddEdge_clicked()
     {
 
         Edge<int> a = CreateEdgeInt(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightInt->text());
-       edge_int.push_back(a);
+        edge_int.push_back(a);
         ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
                                 new QTableWidgetItem (ui->EnterWeightInt->text()));
 
@@ -345,16 +348,12 @@ void MainWindow::on_ButtonAddEdge_clicked()
 
 void MainWindow::on_ShowGraphButton_clicked()
 {
-   if(type == "int"){
-
-
-      vector<vector<pair<int,pair<int,int>>>> err=transfer_to_matrix(edge_int);
-
-      matrix_of_graph<int> gr(err);
-
-     Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
-
-      vector<Edge<int>> ed_int= algorithm_Kruscall(Graph);
+   if(type == "int")
+   {
+       std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int);
+       matrix_of_graph<int> gr(err);
+       Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
+       std::vector<Edge<int>> ed_int= algorithm_Kruscall(Graph);
 
       /*for(int i=0;i<err.size();i++){
            for(int j=0;j<err[i].size();j++)
@@ -362,24 +361,18 @@ void MainWindow::on_ShowGraphButton_clicked()
            cout<<endl;
       }*/
 
-      for(int i=0;i<ed_int.size();i++)
-          cout<<ed_int[i].GetStart()<<" "<<ed_int[i].GetFinish()<<" "<<ed_int[i].GetWeight()<<endl;
+      for(int i=0;i < static_cast<int>(ed_int.size());i++)
+          std::cout<<ed_int[i].GetStart()<<" "<<ed_int[i].GetFinish()<<" "<<ed_int[i].GetWeight()<<std::endl;
     }
     if(type == "double"){
-        vector<vector<pair<double,pair<int,int>>>> err=transfer_to_matrix(edge_double);
-
+        std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double);
         matrix_of_graph<double> gr(err);
-
         Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
-
-
     }
-    if(type == "string"){
-
-        vector<vector<pair<string,pair<int,int>>>> err=transfer_to_matrix(edge_string);
-
+    if(type == "string")
+    {
+        std::vector<std::vector<std::pair<string,std::pair<int,int>>>> err=transfer_to_matrix(edge_string);
         matrix_of_graph<string> gr(err);
-
         Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(gr);
     }
 
