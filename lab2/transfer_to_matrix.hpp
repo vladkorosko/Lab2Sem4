@@ -9,6 +9,8 @@ using namespace std;
 template <typename T>
 vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
 
+    if(!edges.size()) return {};
+
      t_data<T>* td = new t_data<T>;
     T INF = td->T_MAX();
     T null = td->T_NULL();

@@ -353,27 +353,39 @@ void MainWindow::on_ShowGraphButton_clicked()
        std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int);
        matrix_of_graph<int> gr(err);
        Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
-       std::vector<Edge<int>> ed_int= algorithm_Kruscall(Graph);
+       if(connected_graph(Graph))
+        edge_int= algorithm_Kruscall(Graph);
+       else {
+          cout<<"f";
+       }
 
-      /*for(int i=0;i<err.size();i++){
-           for(int j=0;j<err[i].size();j++)
-               cout<<err[i][j].first<<" ";
-           cout<<endl;
-      }*/
 
-      for(int i=0;i < static_cast<int>(ed_int.size());i++)
-          std::cout<<ed_int[i].GetStart()<<" "<<ed_int[i].GetFinish()<<" "<<ed_int[i].GetWeight()<<std::endl;
+
+   //   for(int i=0;i < static_cast<int>(ed_int.size());i++)
+     //     std::cout<<edge_int[i].GetStart()<<" "<<ed_int[i].GetFinish()<<" "<<ed_int[i].GetWeight()<<std::endl;
     }
     if(type == "double"){
         std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double);
         matrix_of_graph<double> gr(err);
         Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
+        if(connected_graph(Graph)){
+         edge_double= algorithm_Kruscall(Graph);
+          }
+        else {
+        cout<<"f";
+        }
+
     }
     if(type == "string")
     {
         std::vector<std::vector<std::pair<string,std::pair<int,int>>>> err=transfer_to_matrix(edge_string);
         matrix_of_graph<string> gr(err);
         Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(gr);
+        if(connected_graph(Graph))
+           edge_string= algorithm_Kruscall(Graph);
+        else {
+            //
+        }
     }
 
 

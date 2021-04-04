@@ -32,6 +32,7 @@ public:
 
     void First_absolute() {
 
+        if(matrix.get_size())
         node = { matrix.get_length(0,0),matrix.get_vertex_num(0,0) };
         i = 0; j = 0;
         end_h=end_v = false;
@@ -39,6 +40,7 @@ public:
 
     void First_horizontal() {
 
+          if(matrix.get_size())
         node = { matrix.get_length(i,0),matrix.get_vertex_num(i,0) };
         j = 0;
         end_h = false;
@@ -46,6 +48,7 @@ public:
     };
     void First_verticall() {
 
+          if(matrix.get_size())
         node = { matrix.get_length(0,j),matrix.get_vertex_num(0,j) };
         i = 0;
         end_v = false;
@@ -57,7 +60,7 @@ public:
 
 
     void Next_horizontal() {
-
+  if(matrix.get_size()){
         if (matrix.get_size()-1 > j){
             node.first = matrix.get_length(i, ++j);
             node.second =matrix.get_vertex_num(i,j);}
@@ -67,9 +70,11 @@ public:
 
         else  if (matrix.get_size() - 1 == j)
             j++;
+  }
     };
 
     void Next_verticall() {
+          if(matrix.get_size()){
         if (matrix.get_size() - 1 == i)
             i++;
 
@@ -79,6 +84,7 @@ public:
 
          if (matrix.get_size() == i)
             end_v = true;
+          }
     };
 
     void Next_ficticall() {
@@ -115,6 +121,11 @@ public:
     }
     void Set(vector<vector<pair<T,pair<int,int>>>> m) {
         matrix.set(m);
+    }
+    bool empty(){
+        if(!matrix.get_size())
+            return true;
+        else return false;
     }
 
 
@@ -164,6 +175,10 @@ private:
 
 template <typename T>
 bool connected_graph(Graph_Node_Iterator<T, matrix_of_graph<T>> Graph) {
+
+    if(Graph.empty())
+        return false;
+
     vector<int> vertex;
     t_data<T>* td = new t_data<T>;
     T null = td->T_NULL();
