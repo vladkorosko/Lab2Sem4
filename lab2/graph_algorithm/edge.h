@@ -37,9 +37,9 @@ bool IsDouble(const QString& d);
 void CheckEndsOfEdge(const QString& point, const QString& name);
 
 bool BiggerQString(const QString& lhs, const QString& rhs);
-bool BiggerQString(const std::string& lhs, const std::string& rhs);
+//bool BiggerQString(const std::string& lhs, const std::string& rhs);
 bool SmallerQString(const QString& lhs, const QString& rhs);
-bool SmallerQString(const std::string& lhs, const std::string& rhs);
+//bool SmallerQString(const std::string& lhs, const std::string& rhs);
 
 void CheckWeightInt(const QString& weight);
 void CheckWeightDouble(const QString& weight);

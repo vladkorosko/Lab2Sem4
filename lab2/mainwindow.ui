@@ -148,19 +148,6 @@
      <string>Enter weight of edge[0-999](float)</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelWeightString">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>140</y>
-      <width>231</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enter weight of edge[0-ZZZZZ](text)</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="ButtonAddEdge">
     <property name="geometry">
      <rect>
@@ -207,19 +194,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="EnterWeightString">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>160</y>
-      <width>201</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="TableGraph">
     <property name="geometry">
      <rect>
@@ -254,12 +228,10 @@
    <zorder>EnterWeightInt</zorder>
    <zorder>labelWeightInt</zorder>
    <zorder>labelWeightFloat</zorder>
-   <zorder>labelWeightString</zorder>
    <zorder>ButtonAddEdge</zorder>
    <zorder>ErrorText</zorder>
    <zorder>labelError</zorder>
    <zorder>EnterWeightDouble</zorder>
-   <zorder>EnterWeightString</zorder>
    <zorder>TableGraph</zorder>
    <zorder>ShowGraphButton</zorder>
   </widget>
@@ -269,7 +241,7 @@
      <x>0</x>
      <y>0</y>
      <width>1230</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

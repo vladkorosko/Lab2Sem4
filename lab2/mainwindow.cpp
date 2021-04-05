@@ -19,13 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->labelStartPoint->hide();
     ui->labelWeightFloat->hide();
     ui->labelWeightInt->hide();
-    ui->labelWeightString->hide();
+    //ui->labelWeightString->hide();
     ui->ButtonAddEdge->hide();
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
     ui->EnterWeightInt->hide();
     ui->EnterWeightDouble->hide();
-    ui->EnterWeightString->hide();
+    //ui->EnterWeightString->hide();
     ui->ErrorText->hide();
     ui->ErrorText->setReadOnly(true);
     ui->labelError->hide();
@@ -36,6 +36,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->TableGraph->horizontalHeader()->setDefaultSectionSize(40);
     ui->TableGraph->hide();
     ui->ShowGraphButton->hide();
+    ui->EnterFinishPoint->setMaxLength(10);
+    ui->EnterStartPoint->setMaxLength(10);
+    ui->EnterWeightInt->setMaxLength(10);
+    ui->EnterWeightDouble->setMaxLength(10);
 }
 
 MainWindow::~MainWindow()
@@ -96,10 +100,10 @@ void MainWindow::HideLineEdit()
     ui->EnterFinishPoint->clear();
     ui->labelWeightFloat->hide();
     ui->labelWeightInt->hide();
-    ui->labelWeightString->hide();
+    //ui->labelWeightString->hide();
     ui->EnterWeightInt->clear();
     ui->EnterWeightDouble->clear();
-    ui->EnterWeightString->clear();
+    //ui->EnterWeightString->clear();
     start_error = "";
     finish_error="";
     weight_error="";
@@ -109,7 +113,7 @@ void MainWindow::HideLineEdit()
     ui->ErrorText->clear();
     ui->EnterWeightInt->hide();
     ui->EnterWeightDouble->hide();
-    ui->EnterWeightString->hide();
+    //ui->EnterWeightString->hide();
     ui->ButtonAddEdge->hide();
     ui->TableGraph->clear();
     ui->ShowGraphButton->hide();
@@ -151,7 +155,7 @@ void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<
             QGraphicsEllipseItem* rect= new QGraphicsEllipseItem();
             rect->setBrush(Qt::blue);
             QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i));
-            text->setPos(pos_vertices[i].first +20, pos_vertices[i].second+10);
+            text->setPos(pos_vertices[i].first +30, pos_vertices[i].second);
             text->setDefaultTextColor(Qt::yellow);
             rect->setRect(pos_vertices[i].first, pos_vertices[i].second,50,50);
             Q->addItem(rect);
@@ -189,13 +193,13 @@ void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<
 
 
 
-        for(int j=0;j<arr.size();j++){
+        for(int j=0;j < static_cast<int>(arr.size());j++){
             if(arr[j].second.first==i.GetStart() && arr[j].second.second==i.GetFinish()){
                 arr[j].first->setPen(QPen(Qt::green, 5));
                 arr[j].first->setGraphicsEffect(effect);
 
-                long long k=0;
-              /* while(k<500000000)
+               /* long long k=0;
+                while(k<500000000)
                         k++;*/
                 view->repaint();
                 break;
@@ -236,7 +240,7 @@ void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::v
             QGraphicsEllipseItem* rect= new QGraphicsEllipseItem();
             rect->setBrush(Qt::blue);
             QGraphicsTextItem* text = new QGraphicsTextItem(QString::number(i));
-            text->setPos(pos_vertices[i].first +20, pos_vertices[i].second+10);
+            text->setPos(pos_vertices[i].first +30, pos_vertices[i].second);
             text->setDefaultTextColor(Qt::yellow);
             rect->setRect(pos_vertices[i].first, pos_vertices[i].second,50,50);
             Q->addItem(rect);
@@ -282,7 +286,7 @@ void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::v
         //this_thread::sleep_for(chrono::milliseconds(3000));
 
 
-           for(int j=0;j<arr.size();j++){
+           for(int j=0;j < static_cast<int>(arr.size());j++){
                if(arr[j].second.first==i.GetStart() && arr[j].second.second==i.GetFinish()){
                    arr[j].first->setPen(QPen(Qt::green, 5));
                    arr[j].first->setGraphicsEffect(effect);
@@ -301,7 +305,7 @@ void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::v
 
 
 }
-
+/*
 void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int,const std::vector<Edge<std::string>>& ed_int)
 {
     std::map<int, int> vertices;
@@ -373,9 +377,9 @@ void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int,const s
                 arr[j].first->setPen(QPen(Qt::green, 5));
                 arr[j].first->setGraphicsEffect(effect);
 
-               /* long long k=0;
+                long long k=0;
                 while(k<500000000)
-                        k++;*/
+                        k++;
                 view->repaint();
                 break;
             }
@@ -384,7 +388,7 @@ void ShowGraphEdgesString(const std::vector<Edge<std::string>>& edge_int,const s
     }
 
 
-}
+}*/
 
 void MainWindow::ShowErrors()
 {
@@ -429,7 +433,7 @@ void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
     if(arg1.size()==0)
     {
         start_ok=false;
-        ui->EnterWeightString->setStyleSheet("color: red");
+        ui->EnterStartPoint->setStyleSheet("color: red");
         start_error = "Field is empty.\n";
     }
     ShowAddEdge();
@@ -453,7 +457,7 @@ void MainWindow::on_EnterFinishPoint_textEdited(const QString &arg1)
     if(arg1.size()==0)
     {
         finish_ok=false;
-        ui->EnterWeightString->setStyleSheet("color: red");
+        ui->EnterFinishPoint->setStyleSheet("color: red");
         finish_error = "Field is empty.\n";
     }
     ShowAddEdge();
@@ -477,7 +481,7 @@ void MainWindow::on_EnterWeightInt_textEdited(const QString &arg1)
     if(arg1.size()==0)
     {
         weight_ok=false;
-        ui->EnterWeightString->setStyleSheet("color: red");
+        ui->EnterWeightInt->setStyleSheet("color: red");
         weight_error = "Field is empty.\n";
     }
     ShowAddEdge();
@@ -501,7 +505,7 @@ void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
     if(arg1.size()==0)
     {
         weight_ok=false;
-        ui->EnterWeightString->setStyleSheet("color: red");
+        ui->EnterWeightDouble->setStyleSheet("color: red");
         ui->ErrorText->setText("Field is empty.");
         weight_error = "Field is empty.\n";
     }
@@ -550,8 +554,9 @@ void MainWindow::on_ButtonAddEdge_clicked()
         ui->EnterWeightDouble->clear();
     }
 
-
-
+    start_ok = false;
+    finish_ok = false;
+    weight_ok = false;
     ui->EnterStartPoint->clear();
     ui->EnterFinishPoint->clear();
     ui->ButtonAddEdge->hide();
@@ -564,20 +569,13 @@ void MainWindow::on_ShowGraphButton_clicked()
 
 
        std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int,"int");
-
-       for(int i=0;i<err.size();i++){
-           for(int j=0;j<err.size();j++)
-               cout<<err[i][j].first<<" "<<"{ "<<err[i][j].second.first<<" "<<err[i][j].second.second<<"} ";
-           cout<<endl;}
-
-
-
-
        matrix_of_graph<int> gr(err);
        Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
-       if(Check_Connected(err)){
-          auto ed_int= algorithm_Kruscall(Graph);
-        ShowGraphEdgesInt(edge_int,ed_int);}
+       if(Check_Connected(err))
+       {
+           auto ed_int= algorithm_Kruscall(Graph);
+           ShowGraphEdgesInt(edge_int,ed_int);
+       }
        else
            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
@@ -587,13 +585,13 @@ void MainWindow::on_ShowGraphButton_clicked()
         std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double,"double");
         matrix_of_graph<double> gr(err);
         Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
-        if(Check_Connected(err)){
-       auto  ed_double= algorithm_Kruscall(Graph);
-        ShowGraphEdgesDouble(edge_double,ed_double);}
+        if(Check_Connected(err))
+        {
+            auto  ed_double= algorithm_Kruscall(Graph);
+            ShowGraphEdgesDouble(edge_double,ed_double);
+        }
         else
             QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
 
     }
-
-
 }
