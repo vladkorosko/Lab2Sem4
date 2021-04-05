@@ -172,7 +172,7 @@ private:
 };
 
 
-
+/*
 template <typename T>
 bool connected_graph(Graph_Node_Iterator<T, matrix_of_graph<T>> Graph) {
 
@@ -228,7 +228,7 @@ bool connected_graph(Graph_Node_Iterator<T, matrix_of_graph<T>> Graph) {
     if (vertex.size() == num)
         return true;
     else return false;
-}
+}*/
 
 
 template <typename T>
@@ -312,20 +312,116 @@ vector<Edge<T>> algorithm_Kruscall(Graph_Node_Iterator<T, matrix_of_graph<T>>& G
         }
 
 
-   Graph.First_absolute();
-    i = 0;
-    for (Graph.First_verticall(); !Graph.isDone_verticall(); Graph.Next_verticall()) {
-        j = 0;
-        for (Graph.First_horizontal(); !Graph.isDone_horizontal(); Graph.Next_horizontal()) {
-            cout << arb[i][j];
-            j++;
-        }
-        i++;
-        cout << endl;
-    }
+
 
     return kist_graph;
 }
+
+template <typename T>
+int find_min(vector<T>& a)
+{
+    t_data<T>* td = new t_data<T>;
+    T INF = td->T_MAX();
+    T null = td->T_NULL();
+
+    T min = null;
+    int index = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[i]!=null && min==null)
+        {
+            min = a[i];
+            index = i;
+        }
+        if(a[i]!=null && min!=null)
+            if (min > a[i])
+            {
+                min = a[i];
+                index = i;
+            }
+    }
+    a[index] = null;
+    if (min == null)
+        index = -1;
+    return index;
+}
+
+
+template<typename T>
+vector<int> Tops_that_used(vector<vector<T>> Matrix)
+  {
+    t_data<T>* td = new t_data<T>;
+    T INF = td->T_MAX();
+    T null = td->T_NULL();
+    vector<int> tops (Matrix.size(),0);
+    for (int i = 0; i < Matrix.size(); i++)
+      for (int j = 0; j < Matrix.size(); j++)
+        if (Matrix[i][j]!=null)
+        {
+          tops[i] = 1;
+          tops[j] = 1;
+        }
+    return tops;
+  }
+
+template<typename T>
+  void Connected_tops(int type, vector<int> &tops, vector<int> &way, int index_of_top,vector<vector<T>> Matrix)
+  {
+      t_data<T>* td = new t_data<T>;
+      T INF = td->T_MAX();
+      T null = td->T_NULL();
+    tops[index_of_top] = 2;
+    way.push_back(index_of_top);
+    if (type)
+    {
+      for (int i = 0; i < tops.size(); i++)
+      {
+
+        if (Matrix[index_of_top][i]!=null)
+          if (tops[i] == 1)
+            Connected_tops(type, tops, way, i,Matrix);
+      }
+    }
+    else
+    {
+      vector<T> a = Matrix[index_of_top];
+      int min = find_min(a);
+      while (min >= 0)
+      {
+        if (tops[min] == 1)
+          Connected_tops(type, tops, way, min,Matrix);
+        min = find_min(a);
+      }
+    }
+  }
+
+  template<typename T>
+  bool Check_Connected(vector<vector<pair<T,pair<int,int>>>> arr)
+  {
+      t_data<T>* td = new t_data<T>;
+      T INF = td->T_MAX();
+      T null = td->T_NULL();
+      vector<T> nil(arr.size(),null);
+      vector<vector<T>> Matrix (arr.size(),nil);
+
+      for(int i=0;i<arr.size();i++)
+          for(int j=0;j<arr.size();j++)
+              Matrix[i][j]=arr[i][j].first;
+
+    bool Connected_graph = true;
+    vector<int> tops = Tops_that_used(Matrix);
+    vector<vector<T>> table = Matrix;
+
+    int n = 0;
+    while (!tops[n])
+      n++;
+    vector<int> way;
+    Connected_tops(1, tops, way, n,Matrix);
+    for (int i = 0; i < tops.size(); i++)
+      if (tops[i] == 1)
+        Connected_graph = false;
+    return Connected_graph;
+  }
 
 
 
