@@ -40,19 +40,6 @@
      <string>Double Graph</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="StringButton">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>340</y>
-      <width>251</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>String Graph</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="ExitButton">
     <property name="geometry">
      <rect>
@@ -259,7 +246,6 @@
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
-   <zorder>StringButton</zorder>
    <zorder>ExitButton</zorder>
    <zorder>EnterStartPoint</zorder>
    <zorder>labelStartPoint</zorder>
@@ -283,7 +269,7 @@
      <x>0</x>
      <y>0</y>
      <width>1230</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -30,7 +30,6 @@ public:
     QWidget *centralwidget;
     QPushButton *IntegerButton;
     QPushButton *DoubleButton;
-    QPushButton *StringButton;
     QPushButton *ExitButton;
     QPushButton *BackButton;
     QLineEdit *EnterStartPoint;
@@ -64,9 +63,6 @@ public:
         DoubleButton = new QPushButton(centralwidget);
         DoubleButton->setObjectName(QString::fromUtf8("DoubleButton"));
         DoubleButton->setGeometry(QRect(260, 190, 251, 81));
-        StringButton = new QPushButton(centralwidget);
-        StringButton->setObjectName(QString::fromUtf8("StringButton"));
-        StringButton->setGeometry(QRect(260, 340, 251, 81));
         ExitButton = new QPushButton(centralwidget);
         ExitButton->setObjectName(QString::fromUtf8("ExitButton"));
         ExitButton->setGeometry(QRect(260, 480, 251, 81));
@@ -122,7 +118,6 @@ public:
         BackButton->raise();
         IntegerButton->raise();
         DoubleButton->raise();
-        StringButton->raise();
         ExitButton->raise();
         EnterStartPoint->raise();
         labelStartPoint->raise();
@@ -141,7 +136,7 @@ public:
         ShowGraphButton->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1230, 26));
+        menubar->setGeometry(QRect(0, 0, 1230, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -157,7 +152,6 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         IntegerButton->setText(QCoreApplication::translate("MainWindow", "Integer Graph", nullptr));
         DoubleButton->setText(QCoreApplication::translate("MainWindow", "Double Graph", nullptr));
-        StringButton->setText(QCoreApplication::translate("MainWindow", "String Graph", nullptr));
         ExitButton->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         BackButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         labelStartPoint->setText(QCoreApplication::translate("MainWindow", "Enter start vertice [1-12](integer)", nullptr));

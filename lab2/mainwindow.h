@@ -45,7 +45,7 @@ private slots:
 
     void on_DoubleButton_clicked();
 
-    void on_StringButton_clicked();
+
 
     void on_ExitButton_clicked();
 
@@ -53,7 +53,7 @@ private slots:
 
     void on_EnterFinishPoint_textEdited(const QString &arg1);
 
-    void on_EnterWeightString_textEdited(const QString &arg1);
+
 
     void on_EnterWeightDouble_textEdited(const QString &arg1);
 
@@ -77,7 +77,7 @@ private:
 
    std::vector<Edge<double>> edge_double;
 
-   std::vector<Edge<std::string>> edge_string;
+
 
 };
 #endif // MAINWINDOW_H

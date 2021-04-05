@@ -57,7 +57,7 @@ void MainWindow::ShowMenu()
 {
     ui->IntegerButton->show();
     ui->DoubleButton->show();
-    ui->StringButton->show();
+
     ui->BackButton->hide();
     ui->ExitButton->show();
 }
@@ -66,7 +66,7 @@ void MainWindow::HideMenu()
 {
     ui->IntegerButton->hide();
     ui->DoubleButton->hide();
-    ui->StringButton->hide();
+
     ui->BackButton->show();
     ui->ExitButton->hide();
 }
@@ -410,14 +410,7 @@ void MainWindow::on_DoubleButton_clicked()
     type = "double";
 }
 
-void MainWindow::on_StringButton_clicked()
-{
-    HideMenu();
-    ShowLineEdit();
-    ui->labelWeightString->show();
-    ui->EnterWeightString->show();
-    type = "string";
-}
+
 
 void MainWindow::on_EnterStartPoint_textEdited(const QString &arg1)
 {
@@ -516,29 +509,7 @@ void MainWindow::on_EnterWeightDouble_textEdited(const QString &arg1)
     ShowErrors();
 }
 
-void MainWindow::on_EnterWeightString_textEdited(const QString &arg1)
-{
-    try{
-        CheckWeightString(arg1);
-        ui->EnterWeightString->setStyleSheet("color: green");
-        ui->ErrorText->clear();
-        weight_ok = true;
-        weight_error = "";
-    } catch (const std::logic_error& e) {
-        ui->EnterWeightString->setStyleSheet("color: red");
-        weight_error = e.what();
-        weight_error += '\n';
-        weight_ok = false;
-    }
-    if(arg1.size()==0)
-    {
-        weight_ok=false;
-        ui->EnterWeightString->setStyleSheet("color: red");
-        weight_error = "Field is empty.\n";
-    }
-    ShowAddEdge();
-    ShowErrors();
-}
+
 
 void MainWindow::on_BackButton_clicked()
 {
@@ -546,7 +517,7 @@ void MainWindow::on_BackButton_clicked()
     HideLineEdit();
     edge_int.clear();
     edge_double.clear();
-    edge_string.clear();
+
 }
 
 void MainWindow::on_ExitButton_clicked()
@@ -578,16 +549,7 @@ void MainWindow::on_ButtonAddEdge_clicked()
                                 new QTableWidgetItem (ui->EnterWeightDouble->text()));
         ui->EnterWeightDouble->clear();
     }
-    if (type == "string")
-    {
-        Edge<std::string> a = CreateEdgeString(ui->EnterStartPoint->text(), ui->EnterFinishPoint->text(), ui->EnterWeightString->text());
-          edge_string.push_back(a);
-        ui->TableGraph->setItem((ui->EnterStartPoint->text().toInt() - 1), (ui->EnterFinishPoint->text().toInt() - 1),
-                                new QTableWidgetItem (ui->EnterWeightString->text()));
-        ui->TableGraph->setItem((ui->EnterFinishPoint->text().toInt() - 1), (ui->EnterStartPoint->text().toInt() - 1),
-                                new QTableWidgetItem (ui->EnterWeightString->text()));
-        ui->EnterWeightString->clear();
-    }
+
 
 
     ui->EnterStartPoint->clear();
@@ -599,13 +561,9 @@ void MainWindow::on_ShowGraphButton_clicked()
 {
    if(type == "int")
    {
-      // for(int i=0;i<edge_int.size();i++){
-        //   cout<<edge_int[i].GetStart()<<" "<<edge_int[i].GetFinish()<<" "<<edge_int[i].GetWeight()<<endl;
 
 
-           //}
-
-       std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int);
+       std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int,"int");
 
        for(int i=0;i<err.size();i++){
            for(int j=0;j<err.size();j++)
@@ -626,7 +584,7 @@ void MainWindow::on_ShowGraphButton_clicked()
     if(type == "double")
     {
 
-        std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double);
+        std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double,"double");
         matrix_of_graph<double> gr(err);
         Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
         if(Check_Connected(err)){
@@ -636,22 +594,6 @@ void MainWindow::on_ShowGraphButton_clicked()
             QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
 
     }
-    if(type == "string")
-    {
 
-        std::vector<std::vector<std::pair<std::string,std::pair<int,int>>>> err=transfer_to_matrix(edge_string);
-        for(int i=0;i<err.size();i++){
-            for(int j=0;j<err.size();j++)
-                cout<<err[i][j].first<<" "<<"{ "<<err[i][j].second.first<<" "<<err[i][j].second.second<<"} ";
-            cout<<endl;
-        }
-       matrix_of_graph<string> gr(err);
-        Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(gr);
-        if(Check_Connected(err)){
-         auto  ed_string= algorithm_Kruscall(Graph);
-         ShowGraphEdgesString(edge_string,ed_string);}
-        else
-            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
-    }
 
 }

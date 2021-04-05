@@ -7,7 +7,7 @@
 using namespace std;
 
 template <typename T>
-vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
+vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges,string types){
 
     if(!edges.size()) return {};
 
@@ -15,6 +15,7 @@ vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
     T INF = td->T_MAX();
     T null = td->T_NULL();
     delete td;
+    std::string noll="0\n";
 
     vector<pair<T,pair<int,int>>> nil(12,{null,{0,0}});
 
@@ -40,15 +41,16 @@ vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
 
 
 
-   /* int v=0;
+    int v=0;
 
     while(v<result[0].size()){
 
         bool t=false;
         for(int k=0;k<result.size();k++){
-            if(result[k][v].first!=null){
-                t=true;
-                break;
+
+                if(result[k][v].first!=null){
+                    t=true;
+                    break;
             }
 
         }
@@ -65,10 +67,12 @@ vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
         }
         else { v++;}
 
-    }*/
+    }
 
     return result;
 }
+
+
 
 
 

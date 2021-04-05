@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[25];
-    char stringdata0[451];
+    QByteArrayData data[23];
+    char stringdata0[395];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,16 +47,14 @@ QT_MOC_LITERAL(11, 112, 10), // "ShowErrors"
 QT_MOC_LITERAL(12, 123, 24), // "on_IntegerButton_clicked"
 QT_MOC_LITERAL(13, 148, 21), // "on_BackButton_clicked"
 QT_MOC_LITERAL(14, 170, 23), // "on_DoubleButton_clicked"
-QT_MOC_LITERAL(15, 194, 23), // "on_StringButton_clicked"
-QT_MOC_LITERAL(16, 218, 21), // "on_ExitButton_clicked"
-QT_MOC_LITERAL(17, 240, 29), // "on_EnterStartPoint_textEdited"
-QT_MOC_LITERAL(18, 270, 4), // "arg1"
-QT_MOC_LITERAL(19, 275, 30), // "on_EnterFinishPoint_textEdited"
-QT_MOC_LITERAL(20, 306, 31), // "on_EnterWeightString_textEdited"
-QT_MOC_LITERAL(21, 338, 31), // "on_EnterWeightDouble_textEdited"
-QT_MOC_LITERAL(22, 370, 28), // "on_EnterWeightInt_textEdited"
-QT_MOC_LITERAL(23, 399, 24), // "on_ButtonAddEdge_clicked"
-QT_MOC_LITERAL(24, 424, 26) // "on_ShowGraphButton_clicked"
+QT_MOC_LITERAL(15, 194, 21), // "on_ExitButton_clicked"
+QT_MOC_LITERAL(16, 216, 29), // "on_EnterStartPoint_textEdited"
+QT_MOC_LITERAL(17, 246, 4), // "arg1"
+QT_MOC_LITERAL(18, 251, 30), // "on_EnterFinishPoint_textEdited"
+QT_MOC_LITERAL(19, 282, 31), // "on_EnterWeightDouble_textEdited"
+QT_MOC_LITERAL(20, 314, 28), // "on_EnterWeightInt_textEdited"
+QT_MOC_LITERAL(21, 343, 24), // "on_ButtonAddEdge_clicked"
+QT_MOC_LITERAL(22, 368, 26) // "on_ShowGraphButton_clicked"
 
     },
     "MainWindow\0DialogMessage\0\0std::string\0"
@@ -64,10 +62,9 @@ QT_MOC_LITERAL(24, 424, 26) // "on_ShowGraphButton_clicked"
     "ShowLineEdit\0HideLineEdit\0ShowAddEdge\0"
     "ShowErrors\0on_IntegerButton_clicked\0"
     "on_BackButton_clicked\0on_DoubleButton_clicked\0"
-    "on_StringButton_clicked\0on_ExitButton_clicked\0"
+    "on_ExitButton_clicked\0"
     "on_EnterStartPoint_textEdited\0arg1\0"
     "on_EnterFinishPoint_textEdited\0"
-    "on_EnterWeightString_textEdited\0"
     "on_EnterWeightDouble_textEdited\0"
     "on_EnterWeightInt_textEdited\0"
     "on_ButtonAddEdge_clicked\0"
@@ -81,7 +78,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      19,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -89,25 +86,23 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,  109,    2, 0x08 /* Private */,
-       6,    0,  114,    2, 0x08 /* Private */,
-       7,    0,  115,    2, 0x08 /* Private */,
-       8,    0,  116,    2, 0x08 /* Private */,
-       9,    0,  117,    2, 0x08 /* Private */,
-      10,    0,  118,    2, 0x08 /* Private */,
-      11,    0,  119,    2, 0x08 /* Private */,
-      12,    0,  120,    2, 0x08 /* Private */,
-      13,    0,  121,    2, 0x08 /* Private */,
-      14,    0,  122,    2, 0x08 /* Private */,
-      15,    0,  123,    2, 0x08 /* Private */,
-      16,    0,  124,    2, 0x08 /* Private */,
-      17,    1,  125,    2, 0x08 /* Private */,
-      19,    1,  128,    2, 0x08 /* Private */,
-      20,    1,  131,    2, 0x08 /* Private */,
-      21,    1,  134,    2, 0x08 /* Private */,
-      22,    1,  137,    2, 0x08 /* Private */,
-      23,    0,  140,    2, 0x08 /* Private */,
-      24,    0,  141,    2, 0x08 /* Private */,
+       1,    2,   99,    2, 0x08 /* Private */,
+       6,    0,  104,    2, 0x08 /* Private */,
+       7,    0,  105,    2, 0x08 /* Private */,
+       8,    0,  106,    2, 0x08 /* Private */,
+       9,    0,  107,    2, 0x08 /* Private */,
+      10,    0,  108,    2, 0x08 /* Private */,
+      11,    0,  109,    2, 0x08 /* Private */,
+      12,    0,  110,    2, 0x08 /* Private */,
+      13,    0,  111,    2, 0x08 /* Private */,
+      14,    0,  112,    2, 0x08 /* Private */,
+      15,    0,  113,    2, 0x08 /* Private */,
+      16,    1,  114,    2, 0x08 /* Private */,
+      18,    1,  117,    2, 0x08 /* Private */,
+      19,    1,  120,    2, 0x08 /* Private */,
+      20,    1,  123,    2, 0x08 /* Private */,
+      21,    0,  126,    2, 0x08 /* Private */,
+      22,    0,  127,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Bool, 0x80000000 | 3, 0x80000000 | 3,    4,    5,
@@ -121,12 +116,10 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   18,
-    QMetaType::Void, QMetaType::QString,   18,
-    QMetaType::Void, QMetaType::QString,   18,
-    QMetaType::Void, QMetaType::QString,   18,
-    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString,   17,
+    QMetaType::Void, QMetaType::QString,   17,
+    QMetaType::Void, QMetaType::QString,   17,
+    QMetaType::Void, QMetaType::QString,   17,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -150,15 +143,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->on_IntegerButton_clicked(); break;
         case 8: _t->on_BackButton_clicked(); break;
         case 9: _t->on_DoubleButton_clicked(); break;
-        case 10: _t->on_StringButton_clicked(); break;
-        case 11: _t->on_ExitButton_clicked(); break;
-        case 12: _t->on_EnterStartPoint_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 13: _t->on_EnterFinishPoint_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 14: _t->on_EnterWeightString_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 15: _t->on_EnterWeightDouble_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 16: _t->on_EnterWeightInt_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 17: _t->on_ButtonAddEdge_clicked(); break;
-        case 18: _t->on_ShowGraphButton_clicked(); break;
+        case 10: _t->on_ExitButton_clicked(); break;
+        case 11: _t->on_EnterStartPoint_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 12: _t->on_EnterFinishPoint_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 13: _t->on_EnterWeightDouble_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 14: _t->on_EnterWeightInt_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 15: _t->on_ButtonAddEdge_clicked(); break;
+        case 16: _t->on_ShowGraphButton_clicked(); break;
         default: ;
         }
     }
@@ -193,13 +184,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 19)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 19;
+        _id -= 17;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 19)
+        if (_id < 17)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 19;
+        _id -= 17;
     }
     return _id;
 }
