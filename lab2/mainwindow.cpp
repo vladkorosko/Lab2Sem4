@@ -607,13 +607,13 @@ void MainWindow::on_ShowGraphButton_clicked()
 
        std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int);
 
-
-
        for(int i=0;i<err.size();i++){
            for(int j=0;j<err.size();j++)
                cout<<err[i][j].first<<" "<<"{ "<<err[i][j].second.first<<" "<<err[i][j].second.second<<"} ";
-           cout<<endl;
-       }
+           cout<<endl;}
+
+
+
 
        matrix_of_graph<int> gr(err);
        Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
@@ -639,8 +639,13 @@ void MainWindow::on_ShowGraphButton_clicked()
     if(type == "string")
     {
 
-        std::vector<std::vector<std::pair<string,std::pair<int,int>>>> err=transfer_to_matrix(edge_string);
-        matrix_of_graph<string> gr(err);
+        std::vector<std::vector<std::pair<std::string,std::pair<int,int>>>> err=transfer_to_matrix(edge_string);
+        for(int i=0;i<err.size();i++){
+            for(int j=0;j<err.size();j++)
+                cout<<err[i][j].first<<" "<<"{ "<<err[i][j].second.first<<" "<<err[i][j].second.second<<"} ";
+            cout<<endl;
+        }
+       matrix_of_graph<string> gr(err);
         Graph_Node_Iterator<string, matrix_of_graph<string>> Graph(gr);
         if(Check_Connected(err)){
          auto  ed_string= algorithm_Kruscall(Graph);

@@ -38,13 +38,9 @@ vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
         else ++j;
     }
 
-    for(int i=0;i<result.size();i++){
-        for(int j=0;j<result[i].size();j++)
-            cout<<result[i][j].first<<" "<<"{ "<<result[i][j].second.first<<" "<<result[i][j].second.second<<"} ";
-        cout<<endl;
-    }
 
-    int v=0;
+
+   /* int v=0;
 
     while(v<result[0].size()){
 
@@ -69,7 +65,7 @@ vector<vector<pair<T,pair<int,int>>>> transfer_to_matrix(vector<Edge<T>> edges){
         }
         else { v++;}
 
-    }
+    }*/
 
     return result;
 }
