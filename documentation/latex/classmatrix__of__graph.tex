@@ -1,0 +1,167 @@
+\hypertarget{classmatrix__of__graph}{}\doxysection{matrix\+\_\+of\+\_\+graph$<$ T $>$ Class Template Reference}
+\label{classmatrix__of__graph}\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+
+
+class for the description and interaction of the graph represented by the adjacency matrix  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmatrix__of__graph_acbe7d256352b4463ebf1519aad272e51}{matrix\+\_\+of\+\_\+graph}} (vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$ a)
+\begin{DoxyCompactList}\small\item\em constructor a class \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmatrix__of__graph_a7f9cf4e89208b010564fc2708618579f}\label{classmatrix__of__graph_a7f9cf4e89208b010564fc2708618579f}} 
+\mbox{\hyperlink{classmatrix__of__graph_a7f9cf4e89208b010564fc2708618579f}{matrix\+\_\+of\+\_\+graph}} ()
+\begin{DoxyCompactList}\small\item\em constructor \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmatrix__of__graph_acd94ef1d3bd997aa2c4d3078ef637c6a}{insert}} (T lenght, int i, int j)
+\begin{DoxyCompactList}\small\item\em insert an edge between the vertices of the graph i and j \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classmatrix__of__graph_a0abdb1a9ee086196e6251aaed8773d69}{get\+\_\+length}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em returns the length of the edge lying between the vertices of the graph i and j \end{DoxyCompactList}\item 
+pair$<$ int, int $>$ \mbox{\hyperlink{classmatrix__of__graph_adb5e9fbea3c5bdbd083241000a06e6b0}{get\+\_\+vertex\+\_\+num}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em returns the name of the vertices lying on the edge with the coefficients in the adjacency matrix i and j \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmatrix__of__graph_a562890f1ef85f231302295135790eb47}{get\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em finds the number of vertices in the graph \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmatrix__of__graph_acf11abd8617eb331248de0bb817c3a60}{set}} (vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$ m)
+\begin{DoxyCompactList}\small\item\em inserts an adjacency matrix into an object representing a graph \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmatrix__of__graph_aaf0121883072179395de58e8875c0759}\label{classmatrix__of__graph_aaf0121883072179395de58e8875c0759}} 
+class {\bfseries Graph\+\_\+\+Node\+\_\+\+Iterator$<$ T, matrix\+\_\+of\+\_\+graph$<$ T $>$ $>$}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class matrix\+\_\+of\+\_\+graph$<$ T $>$}
+
+class for the description and interaction of the graph represented by the adjacency matrix 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & data type for the edge length of the graph \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmatrix__of__graph_acbe7d256352b4463ebf1519aad272e51}\label{classmatrix__of__graph_acbe7d256352b4463ebf1519aad272e51}} 
+\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}!matrix\_of\_graph@{matrix\_of\_graph}}
+\index{matrix\_of\_graph@{matrix\_of\_graph}!matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{matrix\_of\_graph()}{matrix\_of\_graph()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$\+::\mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}} (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor a class \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ adjacency matrix of a new graph \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmatrix__of__graph_a0abdb1a9ee086196e6251aaed8773d69}\label{classmatrix__of__graph_a0abdb1a9ee086196e6251aaed8773d69}} 
+\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}!get\_length@{get\_length}}
+\index{get\_length@{get\_length}!matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_length()}{get\_length()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$\+::get\+\_\+length (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the length of the edge lying between the vertices of the graph i and j 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & -\/first name vertex rib \\
+\hline
+{\em j} & -\/second name vertex rib \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of rib 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmatrix__of__graph_a562890f1ef85f231302295135790eb47}\label{classmatrix__of__graph_a562890f1ef85f231302295135790eb47}} 
+\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+finds the number of vertices in the graph 
+
+\begin{DoxyReturn}{Returns}
+number of vertex in graph 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmatrix__of__graph_adb5e9fbea3c5bdbd083241000a06e6b0}\label{classmatrix__of__graph_adb5e9fbea3c5bdbd083241000a06e6b0}} 
+\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}!get\_vertex\_num@{get\_vertex\_num}}
+\index{get\_vertex\_num@{get\_vertex\_num}!matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_vertex\_num()}{get\_vertex\_num()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+pair$<$int,int$>$ \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$\+::get\+\_\+vertex\+\_\+num (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the name of the vertices lying on the edge with the coefficients in the adjacency matrix i and j 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & first cooficient \\
+\hline
+{\em j} & second cooficient \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+names vertex 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmatrix__of__graph_acd94ef1d3bd997aa2c4d3078ef637c6a}\label{classmatrix__of__graph_acd94ef1d3bd997aa2c4d3078ef637c6a}} 
+\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{T}]{lenght,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert an edge between the vertices of the graph i and j 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lenght} & length of rib \\
+\hline
+{\em i} & -\/first name vertex rib \\
+\hline
+{\em j} & -\/second name vertex rib \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmatrix__of__graph_acf11abd8617eb331248de0bb817c3a60}\label{classmatrix__of__graph_acf11abd8617eb331248de0bb817c3a60}} 
+\index{matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}!set@{set}}
+\index{set@{set}!matrix\_of\_graph$<$ T $>$@{matrix\_of\_graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+inserts an adjacency matrix into an object representing a graph 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m-\/adjacency} & matrix of a new graph \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

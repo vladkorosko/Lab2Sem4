@@ -1,0 +1,180 @@
+\hypertarget{class_graph___node___iterator}{}\doxysection{Graph\+\_\+\+Node\+\_\+\+Iterator$<$ T, U $>$ Class Template Reference}
+\label{class_graph___node___iterator}\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+
+
+a class-\/iterator to bypass the adjacency matrix of the graph  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph___node___iterator_a72a75986dd8f48728b079c272457a970}{Graph\+\_\+\+Node\+\_\+\+Iterator}} (U m)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}} constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_af3891c9f06810caf67457dd6674f1294}\label{class_graph___node___iterator_af3891c9f06810caf67457dd6674f1294}} 
+void \mbox{\hyperlink{class_graph___node___iterator_af3891c9f06810caf67457dd6674f1294}{First\+\_\+absolute}} ()
+\begin{DoxyCompactList}\small\item\em puts the iterator pointer on the element of the compatibility matrix with indices 1, 1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_a453e734631c93ccd888d4b7ff26eae59}\label{class_graph___node___iterator_a453e734631c93ccd888d4b7ff26eae59}} 
+void \mbox{\hyperlink{class_graph___node___iterator_a453e734631c93ccd888d4b7ff26eae59}{First\+\_\+horizontal}} ()
+\begin{DoxyCompactList}\small\item\em puts the iterator pointer on an element that is in the same row but on the first column \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_a8c6df85d38e6c30fedfb36f4f01ca833}\label{class_graph___node___iterator_a8c6df85d38e6c30fedfb36f4f01ca833}} 
+void \mbox{\hyperlink{class_graph___node___iterator_a8c6df85d38e6c30fedfb36f4f01ca833}{First\+\_\+verticall}} ()
+\begin{DoxyCompactList}\small\item\em puts the iterator pointer on an element that is in the same column but on the first row \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_aed434318244be7d733a4620ad9858214}\label{class_graph___node___iterator_aed434318244be7d733a4620ad9858214}} 
+void \mbox{\hyperlink{class_graph___node___iterator_aed434318244be7d733a4620ad9858214}{First\+\_\+ficticall}} ()
+\begin{DoxyCompactList}\small\item\em resets the pointer number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_aca7a020d66ee31860524bb56b266e673}\label{class_graph___node___iterator_aca7a020d66ee31860524bb56b266e673}} 
+void \mbox{\hyperlink{class_graph___node___iterator_aca7a020d66ee31860524bb56b266e673}{Next\+\_\+horizontal}} ()
+\begin{DoxyCompactList}\small\item\em puts a pointer to the element to the right of the current in the adjacency matrix \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_a1c30e0e845ed50a343656790a9d80806}\label{class_graph___node___iterator_a1c30e0e845ed50a343656790a9d80806}} 
+void \mbox{\hyperlink{class_graph___node___iterator_a1c30e0e845ed50a343656790a9d80806}{Next\+\_\+verticall}} ()
+\begin{DoxyCompactList}\small\item\em puts a pointer to an element that is below the current in the adjacency matrix \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_abede61f6cb476ff37325b6cb36273600}\label{class_graph___node___iterator_abede61f6cb476ff37325b6cb36273600}} 
+void \mbox{\hyperlink{class_graph___node___iterator_abede61f6cb476ff37325b6cb36273600}{Next\+\_\+ficticall}} ()
+\begin{DoxyCompactList}\small\item\em increases the pointer number \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph___node___iterator_a22cef73d0b66a9f8d505d0a9e66560d3}{is\+Done\+\_\+horizontal}} ()
+\begin{DoxyCompactList}\small\item\em checks whether the iterator pointer has not reached the end of the adjacency matrix row \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph___node___iterator_af289770f4767aa28116891150bcd51d5}{is\+Done\+\_\+verticall}} ()
+\begin{DoxyCompactList}\small\item\em checks whether the iterator pointer has not reached the last row of the adjacency matrix \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph___node___iterator_a63d21637eda30244fbb61740a4f31689}\label{class_graph___node___iterator_a63d21637eda30244fbb61740a4f31689}} 
+bool {\bfseries is\+Done\+\_\+ficticall} ()
+\item 
+T \mbox{\hyperlink{class_graph___node___iterator_ae4cf11bfe252bf3b5e2894ea481c8b3a}{Current}} ()
+\begin{DoxyCompactList}\small\item\em returns the value of the current edge under the iterator pointer \end{DoxyCompactList}\item 
+pair$<$ int, int $>$ \mbox{\hyperlink{class_graph___node___iterator_ae00b09f6202625ac2146d2645fdfda32}{get\+\_\+ver\+\_\+num}} ()
+\begin{DoxyCompactList}\small\item\em returns the names of the vertices of the graph which are connected by an edge which is under the iterator pointer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph___node___iterator_a809e592345f0d241138b46eeeed9e7bf}{Set}} (vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$ m)
+\begin{DoxyCompactList}\small\item\em inserts an adjacency matrix into an object representing a graph \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph___node___iterator_a4b8dc25adad908af57e49d5f15df6c5e}{empty}} ()
+\begin{DoxyCompactList}\small\item\em checks the graph to see if it is empty \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename U$>$\newline
+class Graph\+\_\+\+Node\+\_\+\+Iterator$<$ T, U $>$}
+
+a class-\/iterator to bypass the adjacency matrix of the graph 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & data type for the edge length of the graph \\
+\hline
+{\em U} & the class represented by the graph \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph___node___iterator_a72a75986dd8f48728b079c272457a970}\label{class_graph___node___iterator_a72a75986dd8f48728b079c272457a970}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!Graph\_Node\_Iterator@{Graph\_Node\_Iterator}}
+\index{Graph\_Node\_Iterator@{Graph\_Node\_Iterator}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{Graph\_Node\_Iterator()}{Graph\_Node\_Iterator()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::\mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}} (\begin{DoxyParamCaption}\item[{U}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m-\/object} & which represents the graph \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph___node___iterator_ae4cf11bfe252bf3b5e2894ea481c8b3a}\label{class_graph___node___iterator_ae4cf11bfe252bf3b5e2894ea481c8b3a}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!Current@{Current}}
+\index{Current@{Current}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{Current()}{Current()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+T \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the value of the current edge under the iterator pointer 
+
+\begin{DoxyReturn}{Returns}
+value of the current edge 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph___node___iterator_a4b8dc25adad908af57e49d5f15df6c5e}\label{class_graph___node___iterator_a4b8dc25adad908af57e49d5f15df6c5e}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!empty@{empty}}
+\index{empty@{empty}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+bool \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+checks the graph to see if it is empty 
+
+\begin{DoxyReturn}{Returns}
+true if the graph is not empty ,else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph___node___iterator_ae00b09f6202625ac2146d2645fdfda32}\label{class_graph___node___iterator_ae00b09f6202625ac2146d2645fdfda32}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!get\_ver\_num@{get\_ver\_num}}
+\index{get\_ver\_num@{get\_ver\_num}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ver\_num()}{get\_ver\_num()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+pair$<$int,int$>$ \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::get\+\_\+ver\+\_\+num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the names of the vertices of the graph which are connected by an edge which is under the iterator pointer 
+
+\begin{DoxyReturn}{Returns}
+names of the vertices of the graph which are connected 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph___node___iterator_a22cef73d0b66a9f8d505d0a9e66560d3}\label{class_graph___node___iterator_a22cef73d0b66a9f8d505d0a9e66560d3}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!isDone\_horizontal@{isDone\_horizontal}}
+\index{isDone\_horizontal@{isDone\_horizontal}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{isDone\_horizontal()}{isDone\_horizontal()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+bool \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::is\+Done\+\_\+horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+checks whether the iterator pointer has not reached the end of the adjacency matrix row 
+
+\begin{DoxyReturn}{Returns}
+false if reached the end of the line , else true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph___node___iterator_af289770f4767aa28116891150bcd51d5}\label{class_graph___node___iterator_af289770f4767aa28116891150bcd51d5}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!isDone\_verticall@{isDone\_verticall}}
+\index{isDone\_verticall@{isDone\_verticall}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{isDone\_verticall()}{isDone\_verticall()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+bool \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::is\+Done\+\_\+verticall (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+checks whether the iterator pointer has not reached the last row of the adjacency matrix 
+
+\begin{DoxyReturn}{Returns}
+false if reached the end of the line , else true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph___node___iterator_a809e592345f0d241138b46eeeed9e7bf}\label{class_graph___node___iterator_a809e592345f0d241138b46eeeed9e7bf}} 
+\index{Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}!Set@{Set}}
+\index{Set@{Set}!Graph\_Node\_Iterator$<$ T, U $>$@{Graph\_Node\_Iterator$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+void \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, U $>$\+::Set (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+inserts an adjacency matrix into an object representing a graph 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m-\/adjacency} & matrix of a new graph \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

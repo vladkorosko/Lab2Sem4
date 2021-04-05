@@ -1,0 +1,92 @@
+\hypertarget{test__runner_8h}{}\doxysection{test\+\_\+runner.\+h File Reference}
+\label{test__runner_8h}\index{test\_runner.h@{test\_runner.h}}
+
+
+header file  
+
+
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_test_runner}{Test\+Runner}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{test__runner_8h_a85cf53148127cafe0d4d5d541bcef1e9}{operator$<$$<$}} (std\+::ostream \&os, const std\+::vector$<$ T $>$ \&s)
+\begin{DoxyCompactList}\small\item\em operator overload for vector \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{test__runner_8h_a38191e0533067d2f8efd51ffa4bc5882}{operator$<$$<$}} (std\+::ostream \&os, const std\+::set$<$ T $>$ \&s)
+\begin{DoxyCompactList}\small\item\em operator overload for set \end{DoxyCompactList}\item 
+{\footnotesize template$<$class K , class V $>$ }\\std\+::ostream \& \mbox{\hyperlink{test__runner_8h_a2a375b9e6945620f84e0a8dadd1f7eaf}{operator$<$$<$}} (std\+::ostream \&os, const std\+::map$<$ K, V $>$ \&m)
+\begin{DoxyCompactList}\small\item\em operator overload for map \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test__runner_8h_a11e4ebee53748b3a78ad88c82b6d27e7}\label{test__runner_8h_a11e4ebee53748b3a78ad88c82b6d27e7}} 
+{\footnotesize template$<$class T , class U $>$ }\\void {\bfseries Assert\+Equal} (const T \&t, const U \&u, const std\+::string \&hint)
+\item 
+\mbox{\Hypertarget{test__runner_8h_a83ee00944b95e4ef14f9e7993b7cea6c}\label{test__runner_8h_a83ee00944b95e4ef14f9e7993b7cea6c}} 
+void {\bfseries Assert} (bool b, const std\+::string \&hint)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+header file 
+
+the file contains functions for testing units 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test__runner_8h_a2a375b9e6945620f84e0a8dadd1f7eaf}\label{test__runner_8h_a2a375b9e6945620f84e0a8dadd1f7eaf}} 
+\index{test\_runner.h@{test\_runner.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!test\_runner.h@{test\_runner.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::map$<$ K, V $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+operator overload for map 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & -\/data type first pattern map \\
+\hline
+{\em V} & -\/data type second patten map \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{test__runner_8h_a38191e0533067d2f8efd51ffa4bc5882}\label{test__runner_8h_a38191e0533067d2f8efd51ffa4bc5882}} 
+\index{test\_runner.h@{test\_runner.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!test\_runner.h@{test\_runner.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::set$<$ T $>$ \&}]{s }\end{DoxyParamCaption})}
+
+
+
+operator overload for set 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & -\/data type patten set \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{test__runner_8h_a85cf53148127cafe0d4d5d541bcef1e9}\label{test__runner_8h_a85cf53148127cafe0d4d5d541bcef1e9}} 
+\index{test\_runner.h@{test\_runner.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!test\_runner.h@{test\_runner.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::vector$<$ T $>$ \&}]{s }\end{DoxyParamCaption})}
+
+
+
+operator overload for vector 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & -\/data type patten vector \\
+\hline
+\end{DoxyTemplParams}

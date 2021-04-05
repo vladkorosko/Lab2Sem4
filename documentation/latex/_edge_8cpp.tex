@@ -1,0 +1,285 @@
+\hypertarget{_edge_8cpp}{}\doxysection{Edge.\+cpp File Reference}
+\label{_edge_8cpp}\index{Edge.cpp@{Edge.cpp}}
+
+
+file with a description of methods and functions  
+
+
+{\ttfamily \#include \char`\"{}Edge.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_edge_8cpp_a50f580afa4300c06ef0903728ebf1dfa}{Is\+Integer}} (const Q\+String \&num)
+\begin{DoxyCompactList}\small\item\em checks the entered character in the window or has the type int entered into the window \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_edge_8cpp_a2186e42a8211a8f8bd0a04469b3e81e7}\label{_edge_8cpp_a2186e42a8211a8f8bd0a04469b3e81e7}} 
+Q\+String {\bfseries Integer\+Part\+Of\+Number} (const Q\+String \&d)
+\item 
+\mbox{\Hypertarget{_edge_8cpp_a2c9b980b986702c86cba3176115d7b95}\label{_edge_8cpp_a2c9b980b986702c86cba3176115d7b95}} 
+Q\+String {\bfseries Float\+Part\+Of\+Number} (const Q\+String \&d)
+\item 
+bool \mbox{\hyperlink{_edge_8cpp_a6333bb1d917d4423e270d409e5c4fd26}{Is\+Double}} (const Q\+String \&d)
+\begin{DoxyCompactList}\small\item\em checks the entered character in the window or has the type double entered into the window \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_edge_8cpp_a054fb76bc0bdc05f6cfb90504b0a1bf2}{Bigger\+Q\+String}} (const Q\+String \&lhs, const Q\+String \&rhs)
+\begin{DoxyCompactList}\small\item\em checks the equality of two elements entered in the window \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_edge_8cpp_a87458aedf96ee3fd85f8a6a7ab3af2de}\label{_edge_8cpp_a87458aedf96ee3fd85f8a6a7ab3af2de}} 
+bool {\bfseries Bigger\+Q\+String} (const std\+::string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{_edge_8cpp_a9ff8168f260c1a4d7f152f9fe65b04e8}{Smaller\+Q\+String}} (const Q\+String \&lhs, const Q\+String \&rhs)
+\begin{DoxyCompactList}\small\item\em checks at once two edits a line on correctness of input of edges \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_edge_8cpp_abe3a7bb14c038c08017943c18ff701e6}{Smaller\+Q\+String}} (const std\+::string \&lhs, const std\+::string \&rhs)
+\begin{DoxyCompactList}\small\item\em checks at once two edits a line on correctness of input of edges \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_edge_8cpp_a8d11ee27f872bf8c4dc08f2ca5cb7217}{Check\+Ends\+Of\+Edge}} (const Q\+String \&point, const Q\+String \&name)
+\begin{DoxyCompactList}\small\item\em checks whether the vertex vertex names entered in the window are empty \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_edge_8cpp_a6caaddcce9490c80f6d5af20a5c83c1c}{Check\+Weight\+Int}} (const Q\+String \&weight)
+\begin{DoxyCompactList}\small\item\em checks if there is a type of rib length -\/ int \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_edge_8cpp_ac36c44ad15a35f8f804e33048a6c8bec}{Check\+Weight\+Double}} (const Q\+String \&weight)
+\begin{DoxyCompactList}\small\item\em checks if there is a type of rib length -\/ double \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_edge_8cpp_a995a44fdc593023e775c126ed6146951}{Check\+Weight\+String}} (const Q\+String \&weight)
+\begin{DoxyCompactList}\small\item\em checks if there is a type of rib length -\/ string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{Edge}}$<$ int $>$ \mbox{\hyperlink{_edge_8cpp_a34f6c9f845aec2045710dd994d3d0d90}{Create\+Edge\+Int}} (const Q\+String \&start, const Q\+String \&finish, const Q\+String \&weight)
+\begin{DoxyCompactList}\small\item\em creates an edge with a pattern int \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{Edge}}$<$ double $>$ \mbox{\hyperlink{_edge_8cpp_a2f541efa6728221166a91788bdd90e47}{Create\+Edge\+Double}} (const Q\+String \&start, const Q\+String \&finish, const Q\+String \&weight)
+\begin{DoxyCompactList}\small\item\em creates an edge with a pattern double \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{Edge}}$<$ std\+::string $>$ \mbox{\hyperlink{_edge_8cpp_a7a041a083d5353a21b58c5a005460f82}{Create\+Edge\+String}} (const Q\+String \&start, const Q\+String \&finish, const Q\+String \&weight)
+\begin{DoxyCompactList}\small\item\em creates an edge with a pattern string \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+file with a description of methods and functions 
+
+this file contains a description of the class \mbox{\hyperlink{class_edge}{Edge}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_edge_8cpp_a054fb76bc0bdc05f6cfb90504b0a1bf2}\label{_edge_8cpp_a054fb76bc0bdc05f6cfb90504b0a1bf2}} 
+\index{Edge.cpp@{Edge.cpp}!BiggerQString@{BiggerQString}}
+\index{BiggerQString@{BiggerQString}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{BiggerQString()}{BiggerQString()}}
+{\footnotesize\ttfamily bool Bigger\+Q\+String (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{lhs,  }\item[{const Q\+String \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+checks the equality of two elements entered in the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & -\/ first Q\+String element \\
+\hline
+{\em rhs} & -\/ second Q\+String element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they are equal else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a8d11ee27f872bf8c4dc08f2ca5cb7217}\label{_edge_8cpp_a8d11ee27f872bf8c4dc08f2ca5cb7217}} 
+\index{Edge.cpp@{Edge.cpp}!CheckEndsOfEdge@{CheckEndsOfEdge}}
+\index{CheckEndsOfEdge@{CheckEndsOfEdge}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckEndsOfEdge()}{CheckEndsOfEdge()}}
+{\footnotesize\ttfamily void Check\+Ends\+Of\+Edge (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{point,  }\item[{const Q\+String \&}]{name }\end{DoxyParamCaption})}
+
+
+
+checks whether the vertex vertex names entered in the window are empty 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & -\/ name first vertex \\
+\hline
+{\em name} & -\/ name second vertex \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_edge_8cpp_ac36c44ad15a35f8f804e33048a6c8bec}\label{_edge_8cpp_ac36c44ad15a35f8f804e33048a6c8bec}} 
+\index{Edge.cpp@{Edge.cpp}!CheckWeightDouble@{CheckWeightDouble}}
+\index{CheckWeightDouble@{CheckWeightDouble}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckWeightDouble()}{CheckWeightDouble()}}
+{\footnotesize\ttfamily void Check\+Weight\+Double (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{weight }\end{DoxyParamCaption})}
+
+
+
+checks if there is a type of rib length -\/ double 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & -\/Qstring element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s double else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a6caaddcce9490c80f6d5af20a5c83c1c}\label{_edge_8cpp_a6caaddcce9490c80f6d5af20a5c83c1c}} 
+\index{Edge.cpp@{Edge.cpp}!CheckWeightInt@{CheckWeightInt}}
+\index{CheckWeightInt@{CheckWeightInt}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckWeightInt()}{CheckWeightInt()}}
+{\footnotesize\ttfamily void Check\+Weight\+Int (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{weight }\end{DoxyParamCaption})}
+
+
+
+checks if there is a type of rib length -\/ int 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & -\/Qstring element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s int else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a995a44fdc593023e775c126ed6146951}\label{_edge_8cpp_a995a44fdc593023e775c126ed6146951}} 
+\index{Edge.cpp@{Edge.cpp}!CheckWeightString@{CheckWeightString}}
+\index{CheckWeightString@{CheckWeightString}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckWeightString()}{CheckWeightString()}}
+{\footnotesize\ttfamily void Check\+Weight\+String (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{weight }\end{DoxyParamCaption})}
+
+
+
+checks if there is a type of rib length -\/ string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & -\/Qstring element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s string else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a2f541efa6728221166a91788bdd90e47}\label{_edge_8cpp_a2f541efa6728221166a91788bdd90e47}} 
+\index{Edge.cpp@{Edge.cpp}!CreateEdgeDouble@{CreateEdgeDouble}}
+\index{CreateEdgeDouble@{CreateEdgeDouble}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateEdgeDouble()}{CreateEdgeDouble()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}}$<$double$>$ Create\+Edge\+Double (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{start,  }\item[{const Q\+String \&}]{finish,  }\item[{const Q\+String \&}]{weight }\end{DoxyParamCaption})}
+
+
+
+creates an edge with a pattern double 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ name first vertex \\
+\hline
+{\em finish} & -\/ name second vertex \\
+\hline
+{\em weight} & length of rib \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+edge 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a34f6c9f845aec2045710dd994d3d0d90}\label{_edge_8cpp_a34f6c9f845aec2045710dd994d3d0d90}} 
+\index{Edge.cpp@{Edge.cpp}!CreateEdgeInt@{CreateEdgeInt}}
+\index{CreateEdgeInt@{CreateEdgeInt}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateEdgeInt()}{CreateEdgeInt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}}$<$int$>$ Create\+Edge\+Int (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{start,  }\item[{const Q\+String \&}]{finish,  }\item[{const Q\+String \&}]{weight }\end{DoxyParamCaption})}
+
+
+
+creates an edge with a pattern int 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ name first vertex \\
+\hline
+{\em finish} & -\/ name second vertex \\
+\hline
+{\em weight} & length of rib \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+edge 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a7a041a083d5353a21b58c5a005460f82}\label{_edge_8cpp_a7a041a083d5353a21b58c5a005460f82}} 
+\index{Edge.cpp@{Edge.cpp}!CreateEdgeString@{CreateEdgeString}}
+\index{CreateEdgeString@{CreateEdgeString}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateEdgeString()}{CreateEdgeString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}}$<$std\+::string$>$ Create\+Edge\+String (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{start,  }\item[{const Q\+String \&}]{finish,  }\item[{const Q\+String \&}]{weight }\end{DoxyParamCaption})}
+
+
+
+creates an edge with a pattern string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ name first vertex \\
+\hline
+{\em finish} & -\/ name second vertex \\
+\hline
+{\em weight} & length of rib \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+edge 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a6333bb1d917d4423e270d409e5c4fd26}\label{_edge_8cpp_a6333bb1d917d4423e270d409e5c4fd26}} 
+\index{Edge.cpp@{Edge.cpp}!IsDouble@{IsDouble}}
+\index{IsDouble@{IsDouble}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{IsDouble()}{IsDouble()}}
+{\footnotesize\ttfamily bool Is\+Double (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{d }\end{DoxyParamCaption})}
+
+
+
+checks the entered character in the window or has the type double entered into the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & -\/Qstring element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s double else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a50f580afa4300c06ef0903728ebf1dfa}\label{_edge_8cpp_a50f580afa4300c06ef0903728ebf1dfa}} 
+\index{Edge.cpp@{Edge.cpp}!IsInteger@{IsInteger}}
+\index{IsInteger@{IsInteger}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{IsInteger()}{IsInteger()}}
+{\footnotesize\ttfamily bool Is\+Integer (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{num }\end{DoxyParamCaption})}
+
+
+
+checks the entered character in the window or has the type int entered into the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & -\/Qstring elemenr \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s int else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_a9ff8168f260c1a4d7f152f9fe65b04e8}\label{_edge_8cpp_a9ff8168f260c1a4d7f152f9fe65b04e8}} 
+\index{Edge.cpp@{Edge.cpp}!SmallerQString@{SmallerQString}}
+\index{SmallerQString@{SmallerQString}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{SmallerQString()}{SmallerQString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Smaller\+Q\+String (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{lhs,  }\item[{const Q\+String \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+checks at once two edits a line on correctness of input of edges 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & -\/ first line edit \\
+\hline
+{\em rhs} & -\/ second line edit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all correct else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_edge_8cpp_abe3a7bb14c038c08017943c18ff701e6}\label{_edge_8cpp_abe3a7bb14c038c08017943c18ff701e6}} 
+\index{Edge.cpp@{Edge.cpp}!SmallerQString@{SmallerQString}}
+\index{SmallerQString@{SmallerQString}!Edge.cpp@{Edge.cpp}}
+\doxysubsubsection{\texorpdfstring{SmallerQString()}{SmallerQString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Smaller\+Q\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{lhs,  }\item[{const std\+::string \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+checks at once two edits a line on correctness of input of edges 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & -\/ first line edit \\
+\hline
+{\em rhs} & -\/ second line edit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all correct else false 
+\end{DoxyReturn}

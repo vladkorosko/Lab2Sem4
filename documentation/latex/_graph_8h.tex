@@ -1,0 +1,166 @@
+\hypertarget{_graph_8h}{}\doxysection{Graph.\+h File Reference}
+\label{_graph_8h}\index{Graph.h@{Graph.h}}
+
+
+header file  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}T\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Edge.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator$<$ T, U $>$}}
+\begin{DoxyCompactList}\small\item\em a class-\/iterator to bypass the adjacency matrix of the graph \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em class for the description and interaction of the graph represented by the adjacency matrix \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{_graph_8h_a1aff4077fcd255600a6fbf5192f17bd7}{algorithm\+\_\+\+Kruscall}} (\mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$$>$ \&Graph)
+\begin{DoxyCompactList}\small\item\em looking for the minimum skeletal tree of the graph \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{_graph_8h_ac1b7253687e70a8f50162cde4a9d6126}{find\+\_\+min}} (vector$<$ T $>$ \&a)
+\begin{DoxyCompactList}\small\item\em looks for the index of the smallest element of the array \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\vector$<$ int $>$ \mbox{\hyperlink{_graph_8h_a5728b9981d58574609777d05b6a8e67e}{Tops\+\_\+that\+\_\+used}} (vector$<$ vector$<$ T $>$$>$ Matrix)
+\begin{DoxyCompactList}\small\item\em counts uninsulated vertices and writes it to an array tops \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{_graph_8h_accafc567cdbb35052437a32f0f3fcfe0}{Connected\+\_\+tops}} (int type, vector$<$ int $>$ \&tops, vector$<$ int $>$ \&way, int index\+\_\+of\+\_\+top, vector$<$ vector$<$ T $>$$>$ Matrix)
+\begin{DoxyCompactList}\small\item\em looks for possible paths between different vertices to check for connectivity \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_graph_8h_a0576bd4b7f4b381f083e46509fca517d}{Check\+\_\+\+Connected}} (vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$ arr)
+\begin{DoxyCompactList}\small\item\em checks whether the graph is connected \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+header file 
+
+contains a classes definition \mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}},matrix of graph and her methods contains the definition of functions check\+\_\+connected ,find\+\_\+min ,allgoritm kruskull, top\+\_\+that\+\_\+used 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_graph_8h_a1aff4077fcd255600a6fbf5192f17bd7}\label{_graph_8h_a1aff4077fcd255600a6fbf5192f17bd7}} 
+\index{Graph.h@{Graph.h}!algorithm\_Kruscall@{algorithm\_Kruscall}}
+\index{algorithm\_Kruscall@{algorithm\_Kruscall}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{algorithm\_Kruscall()}{algorithm\_Kruscall()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+vector$<$\mbox{\hyperlink{class_edge}{Edge}}$<$T$>$ $>$ algorithm\+\_\+\+Kruscall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph___node___iterator}{Graph\+\_\+\+Node\+\_\+\+Iterator}}$<$ T, \mbox{\hyperlink{classmatrix__of__graph}{matrix\+\_\+of\+\_\+graph}}$<$ T $>$$>$ \&}]{Graph }\end{DoxyParamCaption})}
+
+
+
+looking for the minimum skeletal tree of the graph 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & data type for the edge length of the graph \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & -\/ itterator for graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+kist\+\_\+graph -\/a sequential list of skeletal ribs to visualize this algorithm 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_graph_8h_a0576bd4b7f4b381f083e46509fca517d}\label{_graph_8h_a0576bd4b7f4b381f083e46509fca517d}} 
+\index{Graph.h@{Graph.h}!Check\_Connected@{Check\_Connected}}
+\index{Check\_Connected@{Check\_Connected}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{Check\_Connected()}{Check\_Connected()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool Check\+\_\+\+Connected (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ pair$<$ T, pair$<$ int, int $>$$>$$>$$>$}]{arr }\end{DoxyParamCaption})}
+
+
+
+checks whether the graph is connected 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & data type of element adjency matrix \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & adjency matrix of graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if graph is connected else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_graph_8h_accafc567cdbb35052437a32f0f3fcfe0}\label{_graph_8h_accafc567cdbb35052437a32f0f3fcfe0}} 
+\index{Graph.h@{Graph.h}!Connected\_tops@{Connected\_tops}}
+\index{Connected\_tops@{Connected\_tops}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{Connected\_tops()}{Connected\_tops()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Connected\+\_\+tops (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{vector$<$ int $>$ \&}]{tops,  }\item[{vector$<$ int $>$ \&}]{way,  }\item[{int}]{index\+\_\+of\+\_\+top,  }\item[{vector$<$ vector$<$ T $>$$>$}]{Matrix }\end{DoxyParamCaption})}
+
+
+
+looks for possible paths between different vertices to check for connectivity 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & data type of element adjency matrix \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Matrix} & adjency matrix of graph \\
+\hline
+\mbox{\texttt{ in}}  & {\em index\+\_\+of\+\_\+top} & number of tops-\/array \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & -\/ type of graph \\
+\hline
+\mbox{\texttt{ out}}  & {\em way} & -\/new tops array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tops 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_graph_8h_ac1b7253687e70a8f50162cde4a9d6126}\label{_graph_8h_ac1b7253687e70a8f50162cde4a9d6126}} 
+\index{Graph.h@{Graph.h}!find\_min@{find\_min}}
+\index{find\_min@{find\_min}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{find\_min()}{find\_min()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int find\+\_\+min (\begin{DoxyParamCaption}\item[{vector$<$ T $>$ \&}]{a }\end{DoxyParamCaption})}
+
+
+
+looks for the index of the smallest element of the array 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & -\/data type of element array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of the smallest element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_graph_8h_a5728b9981d58574609777d05b6a8e67e}\label{_graph_8h_a5728b9981d58574609777d05b6a8e67e}} 
+\index{Graph.h@{Graph.h}!Tops\_that\_used@{Tops\_that\_used}}
+\index{Tops\_that\_used@{Tops\_that\_used}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{Tops\_that\_used()}{Tops\_that\_used()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+vector$<$int$>$ Tops\+\_\+that\+\_\+used (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ T $>$$>$}]{Matrix }\end{DoxyParamCaption})}
+
+
+
+counts uninsulated vertices and writes it to an array tops 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & data type of element adjency matrix \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em Matrix} & adjency matrix of graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tops 
+\end{DoxyReturn}
