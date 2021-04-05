@@ -19,13 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->labelStartPoint->hide();
     ui->labelWeightFloat->hide();
     ui->labelWeightInt->hide();
-    //ui->labelWeightString->hide();
+    ui->labelWeightString->hide();
     ui->ButtonAddEdge->hide();
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
     ui->EnterWeightInt->hide();
     ui->EnterWeightDouble->hide();
-    //ui->EnterWeightString->hide();
+    ui->EnterWeightString->hide();
     ui->ErrorText->hide();
     ui->ErrorText->setReadOnly(true);
     ui->labelError->hide();
@@ -566,32 +566,38 @@ void MainWindow::on_ShowGraphButton_clicked()
 {
    if(type == "int")
    {
-
-
-       std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int,"int");
-       matrix_of_graph<int> gr(err);
-       Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
-       if(Check_Connected(err))
+       if(edge_int.size())
        {
-           auto ed_int= algorithm_Kruscall(Graph);
-           ShowGraphEdgesInt(edge_int,ed_int);
+           std::vector<std::vector<std::pair<int,std::pair<int,int>>>> err=transfer_to_matrix(edge_int,"int");
+           matrix_of_graph<int> gr(err);
+           Graph_Node_Iterator<int, matrix_of_graph<int>> Graph(gr);
+           if(Check_Connected(err))
+           {
+               auto ed_int= algorithm_Kruscall(Graph);
+               ShowGraphEdgesInt(edge_int,ed_int);
+           }
+           else
+               QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
        }
        else
            QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
     if(type == "double")
     {
-
-        std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double,"double");
-        matrix_of_graph<double> gr(err);
-        Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
-        if(Check_Connected(err))
+        if(edge_double.size())
         {
-            auto  ed_double= algorithm_Kruscall(Graph);
-            ShowGraphEdgesDouble(edge_double,ed_double);
+            std::vector<std::vector<std::pair<double,std::pair<int,int>>>> err=transfer_to_matrix(edge_double,"double");
+            matrix_of_graph<double> gr(err);
+            Graph_Node_Iterator<double, matrix_of_graph<double>> Graph(gr);
+            if(Check_Connected(err))
+            {
+                auto  ed_double= algorithm_Kruscall(Graph);
+                ShowGraphEdgesDouble(edge_double,ed_double);
+            }
+            else
+                QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
         }
         else
             QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
-
     }
 }
