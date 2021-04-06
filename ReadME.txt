@@ -1,0 +1,1 @@
+The link for documentation - https://vladkorosko.github.io/Lab2Sem4/documentation/html/
