@@ -1,9 +1,9 @@
 
-/*!
-\file
-\brief file with a description of methods and functions
-
-this file contains a description of the class  mainwindow
+/**
+*@file
+*@brief file with a description of methods and functions
+*
+*this file contains a description of the class  mainwindow
 */
 
 

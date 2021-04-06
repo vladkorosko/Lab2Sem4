@@ -1,8 +1,8 @@
-/*!
-\file
-\brief file with a description of methods and functions
-
-this file contains a description methods  of the t_data class
+/**
+*@file
+*@brief file with a description of methods and functions
+*
+*  this file contains a description methods  of the t_data class
 */
 
 #include "T_data.h"

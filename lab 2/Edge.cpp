@@ -1,8 +1,7 @@
-/*!
-\file
-\brief file with a description of methods and functions
-
-this file contains a description of the class Edge
+/**
+*@file
+*@brief file with a description of methods and functions
+* this file contains a description of the class Edge
 */
 
 #include "Edge.h"

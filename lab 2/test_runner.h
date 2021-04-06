@@ -1,9 +1,9 @@
 
-/*!
-\file
-\brief header file
-
-the file contains functions for testing units
+/**
+*@file
+*@brief header file
+*
+* the file contains functions for testing units
 */
 #pragma once
 #include <sstream>

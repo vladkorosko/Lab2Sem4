@@ -1,4 +1,4 @@
-/*!
+/**
 *@file
 *@brief the header file contains a description of the minewind class and the names of its methods
 */

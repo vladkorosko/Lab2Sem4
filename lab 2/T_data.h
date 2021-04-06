@@ -1,8 +1,8 @@
-/*!
-\file
-\brief header file
-
-this class contains a description of the t_data class
+/**
+*@file
+*@brief header file
+*
+* this class contains a description of the t_data class
 */
 
 #pragma once

@@ -1,8 +1,8 @@
-/*!
-\file
-\brief file main
-
-everything is tested in this file
+/**
+*@file
+*@brief file main
+*
+* everything is tested in this file
 */
 
 #include "mainwindow.h"

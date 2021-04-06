@@ -1,8 +1,8 @@
-/*!
-\file
-\brief header file
-
-this class contains a description of the Edge class
+/**
+*@file
+*@brief header file
+*
+* this file contains a description of the Edge class
 */
 
 
