@@ -176,6 +176,8 @@ void CheckWeightInt(const QString& weight)
 {
     if(!IsInteger(weight))
         throw std::logic_error("Weight is not an integer number: " + weight.toStdString() + ". ");
+    if (weight == "0" || weight == "00" || weight == "000")
+        throw std::logic_error("Weight can`t contains only zeros: " + weight.toStdString() + ". ");
     if (weight.size() > 3)
         throw std::logic_error("Weight is greater than largest possible value(999): " + weight.toStdString()+ ". ");
 }
@@ -190,6 +192,11 @@ void CheckWeightDouble(const QString& weight)
 {
     if(!IsDouble(weight))
         throw std::logic_error("Weight is not an float number: " + weight.toStdString() + ". ");
+    if (weight == "0" || weight == "00" || weight == "000" ||
+            weight == "0.0" || weight == "00.0" || weight == "000.0" ||
+            weight == "0.00" || weight == "00.00" || weight == "000.00" ||
+            weight == "0.000" || weight == "00.000" || weight == "000.000")
+        throw std::logic_error("Weight can`t contains only zeros: " + weight.toStdString() + ". ");
     t_data<double> el;
     if (IntegerPartOfNumber(weight).size() > 3 || FloatPartOfNumber(weight).size() > 3)
         throw std::logic_error("Weight is greater than largest possible value(" +

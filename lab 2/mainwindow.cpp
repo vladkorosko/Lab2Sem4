@@ -29,12 +29,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->labelStartPoint->hide();
     ui->labelWeightFloat->hide();
     ui->labelWeightInt->hide();
- //   ui->labelWeightString->hide();
+   // ui->labelWeightString->hide();
     ui->ButtonAddEdge->hide();
     ui->EnterFinishPoint->hide();
     ui->EnterStartPoint->hide();
     ui->EnterWeightInt->hide();
     ui->EnterWeightDouble->hide();
+    ui->HideGraphButton->hide();
    // ui->EnterWeightString->hide();
     ui->ErrorText->hide();
     ui->ErrorText->setReadOnly(true);
@@ -144,7 +145,7 @@ void MainWindow::ShowAddEdge()
  * @param ed_int - min kist tree
  */
 
-void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<Edge<int>>& ed_int)
+void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<Edge<int>>& ed_int, QGraphicsView* view)
 {
     std::map<int, int> vertices;
     std::map<int, std::pair<int,int>> pos_vertices;
@@ -195,7 +196,7 @@ void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<
         Q->addItem(text);
     }
 
-    QGraphicsView *view = new QGraphicsView(Q);
+    view = new QGraphicsView(Q);
     view->setRenderHints(QPainter::Antialiasing);
     view->setWindowTitle("Graph View");
     view->show();
@@ -225,18 +226,18 @@ void ShowGraphEdgesInt(const std::vector<Edge<int>>& edge_int,const std::vector<
         }
 
     }
-
-
 }
 
+void MainWindow::CloseView()
+{
 
-
+}
 /**
  * @brief when you click on the "show graph" button, it displays in the window a visualization of the construction of a minimal skeletal tree of a graph with a template double
  * @param edge_int -initial graph
  * @param ed_int - min kist tree
 */
-void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::vector<Edge<double>>& ed_int)
+void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::vector<Edge<double>>& ed_int, QGraphicsView *view)
 {
     std::map<int, int> vertices;
     std::map<int, std::pair<int,int>> pos_vertices;
@@ -294,7 +295,7 @@ void ShowGraphEdgesDouble(const std::vector<Edge<double>>& edge_int,const std::v
 
 
 
-    QGraphicsView *view = new QGraphicsView(Q);
+    view = new QGraphicsView(Q);
     view->setRenderHints(QPainter::Antialiasing);
     view->setWindowTitle("Graph View");
     view->show();
@@ -461,6 +462,7 @@ void MainWindow::on_BackButton_clicked()
 {
     ShowMenu();
     HideLineEdit();
+    ui->HideGraphButton->hide();
     edge_int.clear();
     edge_double.clear();
 
@@ -516,7 +518,7 @@ void MainWindow::on_ShowGraphButton_clicked()
            if(Check_Connected(err))
            {
                auto ed_int= algorithm_Kruscall(Graph);
-               ShowGraphEdgesInt(edge_int,ed_int);
+               ShowGraphEdgesInt(edge_int,ed_int,view);
            }
            else
                QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
@@ -534,7 +536,7 @@ void MainWindow::on_ShowGraphButton_clicked()
             if(Check_Connected(err))
             {
                 auto  ed_double= algorithm_Kruscall(Graph);
-                ShowGraphEdgesDouble(edge_double,ed_double);
+                ShowGraphEdgesDouble(edge_double,ed_double, view);
             }
             else
                 QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
@@ -542,4 +544,13 @@ void MainWindow::on_ShowGraphButton_clicked()
         else
             QMessageBox::information(this,"Попередження","неможливо виконати алгоритма оскільки граф не є звязним \nдобавте декілька ребер так щоб можна було здійснити щлях через усі вами уведені вершини");
     }
+    ui->HideGraphButton->show();
+    ui->ShowGraphButton->hide();
+}
+
+void MainWindow::on_HideGraphButton_clicked()
+{
+    view=nullptr;
+    ui->ShowGraphButton->show();
+    ui->HideGraphButton->hide();
 }
