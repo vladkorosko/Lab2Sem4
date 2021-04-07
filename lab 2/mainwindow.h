@@ -141,6 +141,10 @@ private slots:
      */
     void on_ShowGraphButton_clicked();
 
+    void CloseView();
+
+    void on_HideGraphButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool start_ok = false;
@@ -150,6 +154,7 @@ private:
     QString finish_error;
     QString weight_error;
     QString type;
+    QGraphicsView *view;
 
    std::vector<Edge<int>> edge_int;
 

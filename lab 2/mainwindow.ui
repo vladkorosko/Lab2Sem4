@@ -217,6 +217,19 @@
      <string>Show Graph</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="HideGraphButton">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>440</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hide Graph</string>
+    </property>
+   </widget>
    <zorder>BackButton</zorder>
    <zorder>IntegerButton</zorder>
    <zorder>DoubleButton</zorder>
@@ -234,6 +247,7 @@
    <zorder>EnterWeightDouble</zorder>
    <zorder>TableGraph</zorder>
    <zorder>ShowGraphButton</zorder>
+   <zorder>HideGraphButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
